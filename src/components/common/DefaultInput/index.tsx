@@ -101,7 +101,7 @@ const DefaultInput = ({
         colored={focusColor}
       // errors={errors[name]?.message ? true : false}
       >
-        <div>
+        <div style={{ background: '#121214' }}>
           {img ? <img src={img} alt="R$" /> : null}
           {mask ? (
             <InputMask
