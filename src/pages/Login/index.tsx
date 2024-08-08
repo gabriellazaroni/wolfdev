@@ -9,13 +9,17 @@ import DefaultInput from '../../components/common/DefaultInput';
 import DefaultButton from '../../components/common/DefaultButton';
 
 import {
+  HaveAccountContainer,
+  HaveAccountTitle,
   ImgContainer,
+  InputsContainer,
   LoginBackground,
   LoginContainer,
   LoginContent,
   LoginForm,
   LoginFormRow,
-  LoginImageLogo
+  LoginImageLogo,
+  RegisterText
 } from './styles';
 
 import backgroundWolf from '../../assets/images/background-wolf.svg';
@@ -85,21 +89,23 @@ function Login() {
           <h1>
             Entre na <strong>sua conta</strong>
           </h1>
-          <DefaultInput
-            name="email"
-            title="Email"
-            placeholder="Digite seu Email..."
-            type="text"
-            formMethods={formMethods}
-          />
-          <DefaultInput
-            name="password"
-            title="Senha"
-            placeholder="Digite sua Senha..."
-            type="password"
-            showPasswordIcon
-            formMethods={formMethods}
-          />
+          <InputsContainer>
+            <DefaultInput
+              name="email"
+              title="Email"
+              placeholder="Seu email"
+              type="text"
+              formMethods={formMethods}
+            />
+            <DefaultInput
+              name="password"
+              title="Senha"
+              placeholder="Sua senha"
+              type="password"
+              showPasswordIcon
+              formMethods={formMethods}
+            />
+          </InputsContainer>
           <LoginFormRow>
             <div onClick={() => setRemindMe(!remindMe)}>
               {remindMe ? <CheckboxActive /> : <CheckboxNonActive />}
@@ -110,6 +116,10 @@ function Login() {
           <DefaultButton active fullsize loading={loading}>
             ENTRAR
           </DefaultButton>
+          <HaveAccountContainer>
+            <HaveAccountTitle>Ainda não tem uma conta?</HaveAccountTitle>
+            <RegisterText>CADASTRAR</RegisterText>
+          </HaveAccountContainer>
         </LoginForm>
       </LoginContent>
       <ImgContainer>

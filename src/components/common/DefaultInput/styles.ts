@@ -8,7 +8,7 @@ interface DefaultInputStyleProps {
 }
 
 export const DefaultInputContainerText = styled.label<DefaultInputStyleProps>`
-  font-size: clamp(0.8rem, 0.6rem + 0.4vw, 2.7rem);
+  font-size: clamp(1rem, 0.4rem + 0.6vw, 2rem);
 
   color: ${props => (props.errors ? 'var(--red-600)' : 'var(--dark-300)')};
 `;
@@ -26,11 +26,11 @@ export const DefaultInputContainer = styled.div<DefaultInputStyleProps>`
 
   border: 1px solid
     ${props =>
-    !props.errors
-      ? props.colored
-        ? 'var(--purple-500)'
-        : 'var(--dark-200)'
-      : 'var(--red-600)'};
+      !props.errors
+        ? props.colored
+          ? 'var(--purple-500)'
+          : 'var(--gray-800)'
+        : 'var(--red-600)'};
   border-radius: 0.5rem;
 
   > div {
@@ -49,11 +49,8 @@ export const DefaultInputTitleBox = styled.section`
   display: flex;
   justify-content: space-between;
   width: 100%;
-
-  padding-top: 0.5rem;
-
   > strong {
-    font-size: clamp(0.8rem, 0.6rem + 0.5vw, 2.7rem);
+    font-size: clamp(0.75rem, 0.4rem + 0.6vw, 2rem);
 
     color: var(--red-600);
 
@@ -65,10 +62,10 @@ export const DefaultInputContainerInput = styled.input<DefaultInputStyleProps>`
   width: 100%;
   height: 3rem;
 
-  background-color: transparent;
+  background-color: var(--gray-800);
   color: var(--white);
 
-  font-size: clamp(0.8rem, 0.7rem + 0.3vw, 4rem);
+  font-size: clamp(1rem, 0.7rem + 0.3vw, 4rem);
 
   padding: 0 1.6rem;
 
@@ -97,7 +94,7 @@ export const DefaultInputIconDiv = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 3rem;
+  background-color: var(--gray-800);
 
   cursor: pointer;
 

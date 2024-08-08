@@ -2,12 +2,18 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   :root {
+        --white: #FFFFFF;
+
+        --gray-700: #1A1A1E;
+        --gray-800: #121214;
+
         --dark-100: #F3F3F3;
         --dark-400: #767676;
 
         --dark-200: #E2E2E2;
         --dark-300: #6A6A6A;
         --dark-500: #191919;
+        --dark-550: #1A1A1E;
         --dark-900: #020202;
 
         --dark-600: #171314;
@@ -104,7 +110,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background-color: var(--dark-500);
+        background-color: var(--dark-550);
         -webkit-font-smoothing: antialiased !important;
         -moz-osx-font-smoothing: grayscale !important;
     }
