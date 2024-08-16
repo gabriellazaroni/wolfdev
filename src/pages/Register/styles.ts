@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import womanBackground from '../../assets/images/background-woman_code.svg';
+import styled from 'styled-components'
+import womanBackground from '../../assets/images/background-woman_code.svg'
 
 export const RegisterContainer = styled.div`
   display: flex;
@@ -8,7 +8,7 @@ export const RegisterContainer = styled.div`
   height: 100vh;
   transition: all 0.2s;
   background-color: var(--dark-900);
-`;
+`
 
 export const RegisterImageLogo = styled.img`
   position: absolute;
@@ -21,7 +21,7 @@ export const RegisterImageLogo = styled.img`
   @media (max-width: 490px) {
     left: 7.5rem;
   }
-`;
+`
 
 export const RegisterBackground = styled.div`
   width: 100%;
@@ -34,7 +34,7 @@ export const RegisterBackground = styled.div`
   @media (max-width: 1280px) {
     display: none;
   }
-`;
+`
 
 export const RegisterContent = styled.div`
   display: flex;
@@ -46,7 +46,7 @@ export const RegisterContent = styled.div`
   @media (max-width: 1280px) {
     flex-direction: column;
   }
-`;
+`
 
 export const RegisterForm = styled.form`
   display: flex;
@@ -80,7 +80,7 @@ export const RegisterForm = styled.form`
 
     text-align: center;
   }
-`;
+`
 
 export const RegisterTextBox = styled.div`
   display: flex;
@@ -111,7 +111,7 @@ export const RegisterTextBox = styled.div`
       text-decoration: underline;
     }
   }
-`;
+`
 
 export const RegisterFormBox = styled.div`
   display: flex;
@@ -123,4 +123,4 @@ export const RegisterFormBox = styled.div`
   > div + div {
     margin: 0.5rem 0;
   }
-`;
+`

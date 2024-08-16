@@ -3,11 +3,11 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { ChangeEvent, useState } from 'react';
-import { get } from 'lodash';
-import InputMask from 'react-input-mask';
+import React, { ChangeEvent, useState } from 'react'
+import { get } from 'lodash'
+import InputMask from 'react-input-mask'
 
-import { useController } from 'react-hook-form';
+import { useController } from 'react-hook-form'
 
 import {
   DefaultInputContainer,
@@ -15,26 +15,26 @@ import {
   DefaultInputContainerText,
   DefaultInputIconDiv,
   DefaultInputTitleBox
-} from './styles';
+} from './styles'
 
-import { ReactComponent as Eye } from '../../../assets/icons/eye.svg';
-import { ReactComponent as EyeSlash } from '../../../assets/icons/eyeSlash.svg';
+import { ReactComponent as Eye } from '../../../assets/icons/eye.svg'
+import { ReactComponent as EyeSlash } from '../../../assets/icons/eyeSlash.svg'
 
 interface DefaultInputProps {
-  placeholder?: string;
-  title?: string;
-  size?: string;
-  type: 'text' | 'password';
-  img?: string;
-  name: string;
-  value?: number | string;
-  max?: number;
-  showPasswordIcon?: boolean;
-  formMethods?: any;
-  defaultValue?: string;
-  handleChange?: (value: ChangeEvent<HTMLInputElement>) => void;
-  mask?: string | Array<string>;
-  maskChar?: string | undefined | null;
+  placeholder?: string
+  title?: string
+  size?: string
+  type: 'text' | 'password'
+  img?: string
+  name: string
+  value?: number | string
+  max?: number
+  showPasswordIcon?: boolean
+  formMethods?: any
+  defaultValue?: string
+  handleChange?: (value: ChangeEvent<HTMLInputElement>) => void
+  mask?: string | Array<string>
+  maskChar?: string | undefined | null
 }
 
 const DefaultInput = ({
@@ -51,11 +51,11 @@ const DefaultInput = ({
   mask,
   maskChar = null
 }: DefaultInputProps) => {
-  const [isPasswordVisibled, setIsPasswordVisibled] = useState(false);
-  const [passwordType, setIsPasswordType] = useState('password');
-  const [focusColor, setIsFocusColor] = useState(false);
+  const [isPasswordVisibled, setIsPasswordVisibled] = useState(false)
+  const [passwordType, setIsPasswordType] = useState('password')
+  const [focusColor, setIsFocusColor] = useState(false)
 
-  const { control, errors } = formMethods;
+  const { control, errors } = formMethods
 
   const {
     field: { onChange, onBlur, value, ...inputProps }
@@ -63,31 +63,31 @@ const DefaultInput = ({
     name,
     control,
     defaultValue
-  });
+  })
 
-  let errorProps = {};
-  const error = get(errors, name);
+  let errorProps = {}
+  const error = get(errors, name)
   if (error) {
     errorProps = {
       error: true,
       helperText: error.message
-    };
+    }
   }
 
   const handleSwitchImage = () => {
-    if (isPasswordVisibled) return <EyeSlash />;
-    else return <Eye />;
-  };
+    if (isPasswordVisibled) return <EyeSlash />
+    else return <Eye />
+  }
 
   const handleImageClick = () => {
     if (isPasswordVisibled) {
-      setIsPasswordType('password');
-      setIsPasswordVisibled(false);
+      setIsPasswordType('password')
+      setIsPasswordVisibled(false)
     } else {
-      setIsPasswordType('text');
-      setIsPasswordVisibled(true);
+      setIsPasswordType('text')
+      setIsPasswordVisibled(true)
     }
-  };
+  }
   return (
     <div style={{ width: '100%' }}>
       <DefaultInputContainerText>
@@ -99,7 +99,7 @@ const DefaultInput = ({
         onFocus={() => setIsFocusColor(true)}
         onBlur={() => setIsFocusColor(false)}
         colored={focusColor}
-      // errors={errors[name]?.message ? true : false}
+        // errors={errors[name]?.message ? true : false}
       >
         <div style={{ background: '#121214' }}>
           {img ? <img src={img} alt="R$" /> : null}
@@ -150,7 +150,7 @@ const DefaultInput = ({
         {errors && <strong>{errors[name]?.message}</strong>}
       </DefaultInputTitleBox>
     </div>
-  );
-};
+  )
+}
 
-export default DefaultInput;
+export default DefaultInput

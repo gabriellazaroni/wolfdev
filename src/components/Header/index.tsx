@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
-import DefaultButton from '../common/DefaultButton';
+import DefaultButton from '../common/DefaultButton'
 
 import {
   HeaderMain,
@@ -10,26 +10,26 @@ import {
   ContainerButtons,
   UlMenuContainer,
   LiMenuContainer
-} from './styles';
+} from './styles'
 
-import WolfDevlogo from '../../assets/images/wolf-dev-logo.svg';
-import { useNavigate } from 'react-router-dom';
+import WolfDevlogo from '../../assets/images/wolf-dev-logo.svg'
+import { useNavigate } from 'react-router-dom'
 
 function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+    setIsMenuOpen(!isMenuOpen)
+  }
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   function handleNavigateLogin() {
-    navigate('/login');
+    navigate('/login')
   }
 
   function handleNavigateSignup() {
-    navigate('/register');
+    navigate('/redirecttoregister')
   }
 
   return (
@@ -39,7 +39,7 @@ function Header() {
         <DefaultButton active={false} link="/login">
           ENTRAR
         </DefaultButton>
-        <DefaultButton active={true} link="/register">
+        <DefaultButton active={true} link="/redirecttoregister">
           CADASTRAR
         </DefaultButton>
       </ContainerButtons>
@@ -59,7 +59,7 @@ function Header() {
         <div></div>
       </HamburgerIcon>
     </HeaderMain>
-  );
+  )
 }
 
-export default Header;
+export default Header

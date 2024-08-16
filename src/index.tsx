@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter } from 'react-router-dom'
 
-import { AuthProvider } from './providers/Auth';
+import { AuthProvider } from './providers/Auth'
 
-import App from './App';
+import App from './App'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,4 +15,4 @@ ReactDOM.render(
     </AuthProvider>
   </React.StrictMode>,
   document.getElementById('root')
-);
+)

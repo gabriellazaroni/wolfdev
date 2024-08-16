@@ -1,18 +1,21 @@
-import React, { ReactNode } from 'react';
-import { PulseLoader } from 'react-spinners';
+import React, { ReactNode } from 'react'
+import { PulseLoader } from 'react-spinners'
+import arrow from '../../../assets/icons/purple-arrow.svg'
 
-import { Button, ButtonLink } from './styles';
+import { Button, ButtonLink } from './styles'
 
 interface ButtonHeaderProps {
-  children?: ReactNode;
-  active: boolean;
-  link?: string;
-  type?: 'submit' | 'button';
-  fullsize?: boolean;
-  loading?: boolean;
-  color?: string;
-  backgroundColor?: string;
-  border?: string;
+  children?: ReactNode
+  active: boolean
+  link?: string
+  type?: 'submit' | 'button'
+  fullsize?: boolean
+  loading?: boolean
+  color?: string
+  backgroundColor?: string
+  border?: string
+  icon?: boolean
+  onClick?: () => void
 }
 
 function DefaultButton({
@@ -23,13 +26,15 @@ function DefaultButton({
   loading,
   color,
   backgroundColor,
-  border
+  border,
+  icon,
+  onClick
 }: ButtonHeaderProps) {
   const buttonStyles = {
     color: color,
     backgroundColor: backgroundColor,
     border: border
-  };
+  }
 
   return !link ? (
     <Button
@@ -38,8 +43,18 @@ function DefaultButton({
       data-testid="button_header-component"
       disabled={loading}
       style={{ ...buttonStyles }}
+      onClick={onClick}
     >
-      {loading ? <PulseLoader color="#bf59fd" size={10} /> : children}
+      {loading ? (
+        <PulseLoader color="#bf59fd" size={10} />
+      ) : (
+        <>
+          {children}
+          {icon && (
+            <img src={arrow} alt="Arrow Icon" style={{ marginLeft: '8px' }} />
+          )}
+        </>
+      )}
     </Button>
   ) : (
     <ButtonLink
@@ -50,7 +65,7 @@ function DefaultButton({
     >
       {children}
     </ButtonLink>
-  );
+  )
 }
 
-export default DefaultButton;
+export default DefaultButton

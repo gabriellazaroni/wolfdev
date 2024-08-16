@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import backgroundImg from '../../../assets/images/background-code.svg';
+import styled from 'styled-components'
+import backgroundImg from '../../../assets/images/background-code.svg'
 
 export const ContainerMain = styled.div`
   display: flex;
@@ -12,7 +12,7 @@ export const ContainerMain = styled.div`
   @media (max-width: 649px) {
     height: 65vh;
   }
-`;
+`
 
 export const ContainerText = styled.div`
   display: flex;
@@ -28,22 +28,22 @@ export const ContainerText = styled.div`
     gap: 0px;
     margin: 80px auto;
   }
-`;
+`
 
 export const PurpleText = styled.h1`
   font-family: 'Noto Sans', sans-serif;
   font-size: 4rem;
   font-weight: 700;
   color: var(--purple-500);
-`;
+`
 
 export const TextSpan = styled.span`
   font-family: 'Noto Sans', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   color: var(--purple-500);
-`;
+`
 
 export const WhatsAppLink = styled.a`
   text-decoration: none;
-`;
+`

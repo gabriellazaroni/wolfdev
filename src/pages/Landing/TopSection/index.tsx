@@ -1,14 +1,14 @@
-import React from 'react';
+import React from 'react'
 
-import Header from '../../../components/Header';
-import DefaultButton from '../../../components/common/DefaultButton';
+import Header from '../../../components/Header'
+import DefaultButton from '../../../components/common/DefaultButton'
 
-import { ContainerMain, ContainerText, WhatsAppLink } from './styles';
-import TypingSimulator from '../../../components/TypeSimulator';
+import { ContainerMain, ContainerText, WhatsAppLink } from './styles'
+import TypingSimulator from '../../../components/TypeSimulator'
 
 function TopSection() {
-  const phoneNUmber = '5531973346346';
-  const whatsAppLink = `https://wa.me/${phoneNUmber}`;
+  const phoneNUmber = '5531973346346'
+  const whatsAppLink = `https://wa.me/${phoneNUmber}`
 
   return (
     <ContainerMain>
@@ -29,7 +29,7 @@ function TopSection() {
         </WhatsAppLink>
       </ContainerText>
     </ContainerMain>
-  );
+  )
 }
 
-export default TopSection;
+export default TopSection

@@ -1,23 +1,23 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { CursorSimulator, TypingAnimation } from './styles';
+import React, { useEffect, useState, useRef } from 'react'
+import { CursorSimulator, TypingAnimation } from './styles'
 
 const TypingSimulator = ({ text }: { text: string }) => {
-  const [displayText, setDisplayText] = useState('');
-  const cursorRef = useRef<HTMLSpanElement>(null);
+  const [displayText, setDisplayText] = useState('')
+  const cursorRef = useRef<HTMLSpanElement>(null)
 
   useEffect(() => {
-    let currentIndex = 0;
+    let currentIndex = 0
     const intervalId = setInterval(() => {
       if (currentIndex <= text.length) {
-        setDisplayText(text.slice(0, currentIndex));
-        currentIndex++;
+        setDisplayText(text.slice(0, currentIndex))
+        currentIndex++
       } else {
-        clearInterval(intervalId);
+        clearInterval(intervalId)
       }
-    }, 100);
+    }, 100)
 
-    return () => clearInterval(intervalId);
-  }, [text]);
+    return () => clearInterval(intervalId)
+  }, [text])
 
   useEffect(() => {
     if (cursorRef.current) {
@@ -25,16 +25,16 @@ const TypingSimulator = ({ text }: { text: string }) => {
         behavior: 'smooth',
         block: 'nearest',
         inline: 'end'
-      });
+      })
     }
-  }, [displayText]);
+  }, [displayText])
 
   return (
     <TypingAnimation>
       {displayText}
       <CursorSimulator ref={cursorRef}>|</CursorSimulator>
     </TypingAnimation>
-  );
-};
+  )
+}
 
-export default TypingSimulator;
+export default TypingSimulator

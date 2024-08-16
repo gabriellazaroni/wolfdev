@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -80,6 +80,14 @@ const GlobalStyle = createGlobalStyle`
         --ligth-gray: #ACACAC;
         --toastify-color-error: #BF59FD;
 
+        --font-xxxxl: clamp(1.75rem, 5vw, 3.75rem); // 60px novo
+        --font-xxxl: clamp(1rem, 20vw, 2.5rem); // 40px
+        --font-xxl: clamp(1.5rem, 7vw, 2.25rem); // 36px
+        --font-xl: clamp(1.5rem, 7vw, 2rem); // 32px
+        --font-l: clamp(0.2rem, 4vw , 1.5rem); // 24px
+        --font-md: clamp(0.875rem, 2vw , 1.125rem); //18px novo
+        --font-n: clamp(0.9rem, 2vw , 1rem); // 16px
+        --font-sm: clamp(0.9rem, 2vw , 0.875rem); // 14px
     }
 
     * {
@@ -110,7 +118,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background-color: var(--dark-550);
+        background-color: var(--dark-900);
         -webkit-font-smoothing: antialiased !important;
         -moz-osx-font-smoothing: grayscale !important;
     }
@@ -137,6 +145,6 @@ const GlobalStyle = createGlobalStyle`
     {
         -webkit-text-fill-color: #FFFFFF !important;
     }
-`;
+`
 
-export default GlobalStyle;
+export default GlobalStyle

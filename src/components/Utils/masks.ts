@@ -8,6 +8,6 @@ const MASKS = {
   conta_bancaria: '999999999999',
   agencia_bancaria: '9999',
   number: '9999999999999999999999999999999999999999999999999999999'
-};
+}
 
-export default MASKS;
+export default MASKS

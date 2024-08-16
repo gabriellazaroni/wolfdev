@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const LoginContainer = styled.div`
   display: flex;
@@ -7,7 +7,7 @@ export const LoginContainer = styled.div`
   height: 100vh;
   transition: all 0.2s;
   background-color: var(--dark-900);
-`;
+`
 
 export const LoginImageLogo = styled.div`
   position: absolute;
@@ -20,7 +20,7 @@ export const LoginImageLogo = styled.div`
   @media (max-width: 490px) {
     left: 7.5rem;
   }
-`;
+`
 
 export const LoginContent = styled.div`
   display: flex;
@@ -37,14 +37,14 @@ export const LoginContent = styled.div`
   @media (max-width: 540px) {
     margin: 0px 24px;
   }
-`;
+`
 
 export const ImgContainer = styled.div`
   display: flex;
   @media (max-width: 1480px) {
     display: none;
   }
-`;
+`
 
 export const LoginForm = styled.form`
   display: flex;
@@ -92,7 +92,7 @@ export const LoginForm = styled.form`
       font-size: 1.5rem;
     }
   }
-`;
+`
 
 export const InputsContainer = styled.div`
   display: flex;
@@ -100,7 +100,7 @@ export const InputsContainer = styled.div`
   gap: 24px;
   width: 100%;
   margin-bottom: 1rem;
-`;
+`
 
 export const LoginFormRow = styled.div`
   display: flex;
@@ -131,11 +131,11 @@ export const LoginFormRow = styled.div`
       color: var(--purple-500);
     }
   }
-`;
+`
 
 export const LoginBackground = styled.img`
   display: block;
-`;
+`
 
 export const HaveAccountContainer = styled.div`
   display: flex;
@@ -143,17 +143,18 @@ export const HaveAccountContainer = styled.div`
   gap: 11px;
   margin-top: 24px;
   align-items: center;
-`;
+`
 
 export const HaveAccountTitle = styled.p`
   font-size: 16px;
   line-height: 22px;
   color: var(--white);
-`;
+`
 
 export const RegisterText = styled.p`
   font-size: 18px;
   line-height: 22px;
   color: var(--purple-500);
   font-weight: 700;
-`;
+  cursor: pointer;
+`

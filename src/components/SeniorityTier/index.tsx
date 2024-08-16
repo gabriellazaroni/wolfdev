@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-import { SeniorityTierContainer, SeniorityTierStarsBox } from './styles';
+import { SeniorityTierContainer, SeniorityTierStarsBox } from './styles'
 
-import { ReactComponent as StarIcon } from '../../assets/icons/star.svg';
+import { ReactComponent as StarIcon } from '../../assets/icons/star.svg'
 
 interface SeniorityTierProps {
-  tier: 1 | 2 | 3;
+  tier: 1 | 2 | 3
 }
 
 export const SeniorityTier = ({ tier }: SeniorityTierProps) => {
@@ -20,7 +20,7 @@ export const SeniorityTier = ({ tier }: SeniorityTierProps) => {
           </SeniorityTierStarsBox>
           <span>Sênior</span>
         </SeniorityTierContainer>
-      );
+      )
     case 2:
       return (
         <SeniorityTierContainer>
@@ -30,7 +30,7 @@ export const SeniorityTier = ({ tier }: SeniorityTierProps) => {
           </SeniorityTierStarsBox>
           <span>Pleno</span>
         </SeniorityTierContainer>
-      );
+      )
     case 3:
       return (
         <SeniorityTierContainer>
@@ -39,8 +39,8 @@ export const SeniorityTier = ({ tier }: SeniorityTierProps) => {
           </SeniorityTierStarsBox>
           <span>Júnior</span>
         </SeniorityTierContainer>
-      );
+      )
   }
-};
+}
 
-export default SeniorityTier;
+export default SeniorityTier

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const HeaderMain = styled.header`
   display: flex;
@@ -6,7 +6,7 @@ export const HeaderMain = styled.header`
   justify-content: space-between;
   width: 100%;
   padding: 0 2rem;
-`;
+`
 export const ContainerButtons = styled.div`
   display: flex;
   justify-content: space-between;
@@ -14,7 +14,7 @@ export const ContainerButtons = styled.div`
   @media (max-width: 768px) {
     display: none;
   }
-`;
+`
 
 export const ImageLogo = styled.img`
   display: flex;
@@ -22,7 +22,7 @@ export const ImageLogo = styled.img`
   @media (max-width: 768px) {
     margin-left: 0px;
   }
-`;
+`
 
 export const MenuItens = styled.div<{ isOpen: boolean }>`
   display: flex;
@@ -37,7 +37,7 @@ export const MenuItens = styled.div<{ isOpen: boolean }>`
   right: 40px;
   z-index: 2;
   background-color: var(--dark-500);
-`;
+`
 
 export const UlMenuContainer = styled.ul`
   display: flex;
@@ -49,12 +49,12 @@ export const UlMenuContainer = styled.ul`
   list-style: none;
   font-size: 20px;
   padding: 12px;
-`;
+`
 
 export const LiMenuContainer = styled.li`
   cursor: pointer;
   font-weight: 700;
-`;
+`
 
 export const HamburgerIcon = styled.div<{ isOpen: boolean }>`
   display: none;
@@ -86,4 +86,4 @@ export const HamburgerIcon = styled.div<{ isOpen: boolean }>`
     }
   `
       : ''}
-`;
+`
