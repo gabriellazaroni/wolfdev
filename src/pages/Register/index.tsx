@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import { Auth } from 'aws-amplify';
+import React, { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import { Auth } from 'aws-amplify'
 
-import DefaultInput from '../../components/common/DefaultInput';
-import DefaultButton from '../../components/common/DefaultButton';
+import DefaultInput from '../../components/common/DefaultInput'
+import DefaultButton from '../../components/common/DefaultButton'
 
 import {
   RegisterBackground,
@@ -17,36 +17,36 @@ import {
   RegisterFormBox,
   RegisterTextBox,
   RegisterImageLogo
-} from './styles';
+} from './styles'
 
-import WolfDevlogo from '../../assets/images/wolf-dev-logo.svg';
+import WolfDevlogo from '../../assets/images/wolf-dev-logo.svg'
 
 interface FormValuesProps {
-  email: string;
-  password: string;
-  confirmPassword: string;
-  confirmationCode?: string;
+  email: string
+  password: string
+  confirmPassword: string
+  confirmationCode?: string
 }
 
 interface FormConfirmationProps {
-  confirmationCode: string;
+  confirmationCode: string
 }
 
 function Register() {
-  const formMethods = useForm();
-  const { handleSubmit } = formMethods;
-  const navigate = useNavigate();
+  const formMethods = useForm()
+  const { handleSubmit } = formMethods
+  const navigate = useNavigate()
 
-  const [loading, setLoading] = useState(false);
-  const [isConfirmCodeStep, setIsConfirmCodeStep] = useState(false);
+  const [loading, setLoading] = useState(false)
+  const [isConfirmCodeStep, setIsConfirmCodeStep] = useState(false)
   const [userRegisterData, setUserRegisterData] = useState<FormValuesProps>(
     {} as FormValuesProps
-  );
+  )
 
   const handleConnectionRequested = (data: FormValuesProps) => {
-    console.log(data.email);
-    setLoading(true);
-    setUserRegisterData(data);
+    console.log(data.email)
+    setLoading(true)
+    setUserRegisterData(data)
 
     Auth.signUp({
       username: data.email,
@@ -56,56 +56,56 @@ function Register() {
       }
     })
       .then(() => {
-        setLoading(false);
-        setIsConfirmCodeStep(true);
+        setLoading(false)
+        setIsConfirmCodeStep(true)
       })
       .catch((err: any) => {
         if (err.message === 'User already exists') {
-          setIsConfirmCodeStep(true);
-          setLoading(false);
+          setIsConfirmCodeStep(true)
+          setLoading(false)
         } else {
-          console.log(err.message);
-          toast.error('Erro interno do servidor!');
-          setLoading(false);
+          console.log(err.message)
+          toast.error('Erro interno do servidor!')
+          setLoading(false)
         }
-      });
-  };
+      })
+  }
 
   const handleFormSubmit = (data: FormValuesProps) => {
     if (data.email && data.password && data.password && data.confirmPassword) {
       return data.password === data.confirmPassword
         ? handleConnectionRequested(data)
-        : toast.error('Os campos de senha devem ser iguais!');
+        : toast.error('Os campos de senha devem ser iguais!')
     } else {
-      return toast.error('Todos os campos devem estar preechidos!');
+      return toast.error('Todos os campos devem estar preechidos!')
     }
-  };
+  }
 
   const handleFormSubmitConfirmation = (data: FormConfirmationProps) => {
     if (data.confirmationCode) {
-      console.log(userRegisterData.email);
-      setLoading(true);
+      console.log(userRegisterData.email)
+      setLoading(true)
 
       Auth.confirmSignUp(userRegisterData.email, data.confirmationCode)
         .then((res: any) => {
-          console.log(res);
-          setLoading(false);
-          navigate('/login');
+          console.log(res)
+          setLoading(false)
+          navigate('/login')
         })
         .catch((err: any) => {
           if (err.message === 'User already exists') {
-            setIsConfirmCodeStep(true);
-            setLoading(false);
+            setIsConfirmCodeStep(true)
+            setLoading(false)
           } else {
-            console.log(err.message);
-            toast.error('Erro interno do servidor!');
-            setLoading(false);
+            console.log(err.message)
+            toast.error('Erro interno do servidor!')
+            setLoading(false)
           }
-        });
+        })
     } else {
-      return toast.error('O campo não pode estar vazio!');
+      return toast.error('O campo não pode estar vazio!')
     }
-  };
+  }
 
   return (
     <RegisterContainer>
@@ -182,7 +182,7 @@ function Register() {
         )}
       </RegisterContent>
     </RegisterContainer>
-  );
+  )
 }
 
-export default Register;
+export default Register

@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components'
 
 export const TypingAnimation = styled.h1`
   position: relative;
@@ -22,15 +22,15 @@ export const TypingAnimation = styled.h1`
   @media (max-width: 390px) {
     height: 240px;
   }
-`;
+`
 
 export const blinkAnimation = keyframes`
   50% {
     opacity: 0;
   }
-`;
+`
 
 export const CursorSimulator = styled.span`
   color: var(--purple-500);
   animation: ${blinkAnimation} 1s infinite;
-`;
+`

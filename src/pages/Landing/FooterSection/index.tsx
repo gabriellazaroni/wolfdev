@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 import {
   ContainerMain,
@@ -9,16 +9,16 @@ import {
   LogoAndSocialMediaContainer,
   WhatsAppLink,
   CircleUpContainer
-} from './styles';
+} from './styles'
 
-import { ReactComponent as WolfDevlogo } from '../../../assets/images/wolf-dev-logo.svg';
-import { ReactComponent as CircleUp } from '../../../assets/icons/circle-up.svg';
-import whatsappIcon from '../../../assets/icons/purple-whatsapp.svg';
-import instagramIcon from '../../../assets/icons/purple-instagram.svg';
+import { ReactComponent as WolfDevlogo } from '../../../assets/images/wolf-dev-logo.svg'
+import { ReactComponent as CircleUp } from '../../../assets/icons/circle-up.svg'
+import whatsappIcon from '../../../assets/icons/purple-whatsapp.svg'
+import instagramIcon from '../../../assets/icons/purple-instagram.svg'
 
 function FooterSection() {
-  const phoneNUmber = '5531973346346';
-  const whatsAppLink = `https://wa.me/${phoneNUmber}`;
+  const phoneNUmber = '5531973346346'
+  const whatsAppLink = `https://wa.me/${phoneNUmber}`
 
   return (
     <ContainerMain>
@@ -43,12 +43,12 @@ function FooterSection() {
       <CircleUpContainer>
         <CircleUp
           onClick={() => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: 'smooth' })
           }}
         />
       </CircleUpContainer>
     </ContainerMain>
-  );
+  )
 }
 
-export default FooterSection;
+export default FooterSection

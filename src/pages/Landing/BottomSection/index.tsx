@@ -1,7 +1,7 @@
-import React from 'react';
-import DefaultButton from '../../../components/common/DefaultButton';
+import React from 'react'
+import DefaultButton from '../../../components/common/DefaultButton'
 
-import { ContainerMain, ContainerText, TextSpan, Text } from './styles';
+import { ContainerMain, ContainerText, TextSpan, Text } from './styles'
 
 function BottomSection() {
   return (
@@ -16,7 +16,7 @@ function BottomSection() {
         Cadastrar
       </DefaultButton>
     </ContainerMain>
-  );
+  )
 }
 
-export default BottomSection;
+export default BottomSection

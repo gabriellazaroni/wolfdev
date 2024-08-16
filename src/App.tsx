@@ -1,15 +1,15 @@
-import React from 'react';
-import GlobalStyle from './globalStyles';
-import { ToastContainer } from 'react-toastify';
-import Amplify from 'aws-amplify';
+import React from 'react'
+import GlobalStyle from './globalStyles'
+import { ToastContainer } from 'react-toastify'
+import Amplify from 'aws-amplify'
 
-import amplifyConfig from './services/amplify-config';
+import amplifyConfig from './services/amplify-config'
 
-import GlobalRoutes from './routes/routes';
+import GlobalRoutes from './routes/routes'
 
-import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css'
 
-Amplify.configure(amplifyConfig);
+Amplify.configure(amplifyConfig)
 
 function App() {
   return (
@@ -29,7 +29,7 @@ function App() {
       <GlobalStyle />
       <GlobalRoutes />
     </>
-  );
+  )
 }
 
-export default App;
+export default App

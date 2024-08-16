@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-import DefaultButton from '../../../components/common/DefaultButton';
-import SeniorityTier from '../../../components/SeniorityTier';
+import DefaultButton from '../../../components/common/DefaultButton'
+import SeniorityTier from '../../../components/SeniorityTier'
 
 import {
   ContainerMain,
@@ -10,7 +10,7 @@ import {
   Title,
   Subtitle,
   ContainerTechTierSection
-} from './styles';
+} from './styles'
 
 function MidleSection() {
   return (
@@ -57,7 +57,7 @@ function MidleSection() {
         </ContainerTechTierSection>
       </ContainerMain>
     </>
-  );
+  )
 }
 
-export default MidleSection;
+export default MidleSection

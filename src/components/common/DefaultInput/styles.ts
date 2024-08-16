@@ -1,17 +1,17 @@
 /* eslint-disable prettier/prettier */
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 interface DefaultInputStyleProps {
-  size?: string;
-  errors?: boolean;
-  colored?: boolean;
+  size?: string
+  errors?: boolean
+  colored?: boolean
 }
 
 export const DefaultInputContainerText = styled.label<DefaultInputStyleProps>`
   font-size: clamp(1rem, 0.4rem + 0.6vw, 2rem);
 
   color: ${props => (props.errors ? 'var(--red-600)' : 'var(--dark-300)')};
-`;
+`
 
 export const DefaultInputContainer = styled.div<DefaultInputStyleProps>`
   display: flex;
@@ -43,7 +43,7 @@ export const DefaultInputContainer = styled.div<DefaultInputStyleProps>`
       padding: 0 1vw;
     }
   }
-`;
+`
 
 export const DefaultInputTitleBox = styled.section`
   display: flex;
@@ -56,7 +56,7 @@ export const DefaultInputTitleBox = styled.section`
 
     margin-left: 0.5rem;
   }
-`;
+`
 
 export const DefaultInputContainerInput = styled.input<DefaultInputStyleProps>`
   width: 100%;
@@ -88,7 +88,7 @@ export const DefaultInputContainerInput = styled.input<DefaultInputStyleProps>`
   @media (max-width: 1280px) {
     padding: 0 1rem;
   }
-`;
+`
 
 export const DefaultInputIconDiv = styled.section`
   display: flex;
@@ -111,4 +111,4 @@ export const DefaultInputIconDiv = styled.section`
   @media (max-width: 1920px) {
     height: 2.5rem;
   }
-`;
+`

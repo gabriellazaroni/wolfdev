@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import TopSection from './TopSection';
-import MidleSection from './MidleSection';
-import BottomSection from './BottomSection';
-import FooterSection from './FooterSection';
+import TopSection from './TopSection'
+import MidleSection from './MidleSection'
+import BottomSection from './BottomSection'
+import FooterSection from './FooterSection'
 
 function LandingPage() {
   return (
@@ -13,7 +13,7 @@ function LandingPage() {
       <BottomSection />
       <FooterSection />
     </>
-  );
+  )
 }
 
-export default LandingPage;
+export default LandingPage

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const SeniorityTierContainer = styled.div`
   display: flex;
@@ -28,10 +28,10 @@ export const SeniorityTierContainer = styled.div`
 
     margin-top: 0.5rem;
   }
-`;
+`
 
 export const SeniorityTierStarsBox = styled.div`
   svg + svg {
     margin-left: 0.5rem;
   }
-`;
+`
