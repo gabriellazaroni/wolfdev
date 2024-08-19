@@ -4,6 +4,8 @@ const GlobalStyle = createGlobalStyle`
   :root {
         --white: #FFFFFF;
 
+        --gray-100: #C4C4CC;
+        --gray-500: #505059;
         --gray-700: #1A1A1E;
         --gray-800: #121214;
 
@@ -83,9 +85,9 @@ const GlobalStyle = createGlobalStyle`
         --font-xxxxl: clamp(1.75rem, 5vw, 3.75rem); // 60px novo
         --font-xxxl: clamp(1rem, 20vw, 2.5rem); // 40px
         --font-xxl: clamp(1.5rem, 7vw, 2.25rem); // 36px
-        --font-xl: clamp(1.5rem, 7vw, 2rem); // 32px
+        --font-xl: clamp(1.5rem, 5vw, 2rem); // 32px
         --font-l: clamp(0.2rem, 4vw , 1.5rem); // 24px
-        --font-md: clamp(0.875rem, 2vw , 1.125rem); //18px novo
+        --font-md: clamp(0.875rem, 5vw , 1.125rem); //18px novo
         --font-n: clamp(0.9rem, 2vw , 1rem); // 16px
         --font-sm: clamp(0.9rem, 2vw , 0.875rem); // 14px
     }
