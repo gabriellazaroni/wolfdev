@@ -9,7 +9,7 @@ interface DefaultInputStyleProps {
 
 export const DefaultInputContainerText = styled.label<DefaultInputStyleProps>`
   font-size: clamp(1rem, 0.4rem + 0.6vw, 2rem);
-  color: ${props => (props.errors ? 'var(--red-600)' : 'var(--gray-100)')};
+  color: ${props => (props.errors ? 'var(--red-600)' : 'var(--dark-300)')};
 `
 
 export const DefaultInputContainer = styled.div<DefaultInputStyleProps>`
@@ -21,21 +21,16 @@ export const DefaultInputContainer = styled.div<DefaultInputStyleProps>`
   margin-top: 0.5rem;
   border: 1px solid
     ${props =>
-      !props.errors
-        ? props.colored
-          ? 'var(--purple-500)'
-          : 'var(--gray-800)'
-        : 'var(--red-600)'};
+    !props.errors
+      ? props.colored
+        ? 'var(--purple-500)'
+        : 'var(--gray-800)'
+      : 'var(--red-600)'};
   border-radius: 0.5rem;
-
   > div {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    > img {
-      height: 2vh;
-      padding: 0 1vw;
-    }
   }
 `
 
@@ -50,19 +45,20 @@ export const DefaultInputTitleBox = styled.section`
   }
 `
 
-export const DefaultInputContainerInput = styled.input<DefaultInputStyleProps>`
-  width: 100%;
+export const DefaultInputContainerInput = styled.select<DefaultInputStyleProps>`
+  width: 95%;
   height: 3rem;
   background-color: var(--gray-800);
   color: var(--dark-400);
   font-size: clamp(1rem, 0.7rem + 0.3vw, 4rem);
-  padding: 0 1.6rem;
+  padding: 0 1.4rem;
   border: 0;
   -moz-appearance: textfield;
   appearance: textfield;
   ::-webkit-inner-spin-button {
     -webkit-appearance: none;
   }
+
   ::-webkit-calendar-picker-indicator {
     filter: invert(1);
   }
@@ -82,11 +78,12 @@ export const DefaultInputIconDiv = styled.section`
   cursor: pointer;
   padding: 0 1rem;
   > svg {
-    width: 1.5rem;
-    @media (min-width: 550px) {
+    width: 2vw;
+    @media (min-width: 1920px) {
       width: 2rem;
     }
   }
+
   @media (max-width: 1920px) {
     height: 2.5rem;
   }

@@ -46,6 +46,22 @@ export const RegisterContent = styled.div`
   @media (max-width: 1280px) {
     flex-direction: column;
   }
+  @media (max-width: 550px) {
+    justify-content: start;
+    padding: 0 24px;
+  }
+`
+
+export const RegisterContainerForm = styled.div`
+  background-color: var(--gray-700);
+  padding: 24px 38px 24px 38px;
+  border-radius: 20px;
+  max-width: 473px;
+  width: 100%;
+  @media (max-width: 550px) {
+    padding: 24px;
+    margin-top: 10px;
+  }
 `
 
 export const RegisterForm = styled.form`
@@ -54,7 +70,6 @@ export const RegisterForm = styled.form`
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  max-width: 35rem;
   height: 100%;
   @media (max-width: 1280px) {
     max-width: 400px;
@@ -63,9 +78,8 @@ export const RegisterForm = styled.form`
     width: 100%;
     color: var(--white);
     font-family: 'Noto Sans', sans-serif;
-    font-size: 2rem;
+    font-size: var(--font-xl);
     font-weight: 400;
-    margin: 0.5rem 0 3rem 0;
     @media (max-width: 1280px) {
       text-align: center;
     }
@@ -73,11 +87,9 @@ export const RegisterForm = styled.form`
 
   > h1 > strong {
     font-family: 'Noto Sans', sans-serif;
-    font-size: 2rem;
+    font-size: var(--font-xl);
     font-weight: 700;
-
     color: var(--purple-500);
-
     text-align: center;
   }
 `
@@ -90,20 +102,16 @@ export const RegisterTextBox = styled.div`
   margin: 1.5rem 0 0 0;
   > span {
     color: var(--white);
-
     font-family: 'Noto Sans', sans-serif;
-    font-size: clamp(0.4rem, 0.6rem + 0.6vw, 2rem);
+    font-size: var(--font-md);
     font-weight: 400;
-
     margin-bottom: 0.5rem;
   }
   > a {
     font-family: 'Noto Sans', sans-serif;
-    font-size: clamp(0.4rem, 0.6rem + 0.6vw, 2rem);
+    font-size: var(--font-md);
     font-weight: 700;
-
     color: var(--purple-500);
-
     text-align: center;
     text-decoration: none;
 
@@ -117,10 +125,10 @@ export const RegisterFormBox = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-
-  padding-bottom: 3rem;
-
-  > div + div {
-    margin: 0.5rem 0;
+  padding-bottom: 40px;
+  gap: 32px;
+  margin-top: 32px;
+  @media (max-width: 578px) {
+    margin-top: 25px;
   }
 `

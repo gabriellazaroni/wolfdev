@@ -16,10 +16,12 @@ import {
   RegisterForm,
   RegisterFormBox,
   RegisterTextBox,
-  RegisterImageLogo
+  RegisterImageLogo,
+  RegisterContainerForm
 } from './styles'
 
 import WolfDevlogo from '../../assets/images/wolf-dev-logo.svg'
+import { DefaultSelect } from '../../components/common/DefaultSelect'
 
 interface FormValuesProps {
   email: string
@@ -115,43 +117,56 @@ function Register() {
           <RegisterImageLogo src={WolfDevlogo} alt="Wolf Dev Logo" />
         </Link>
         {!isConfirmCodeStep ? (
-          <RegisterForm onSubmit={handleSubmit(handleFormSubmit)}>
-            <h1>
-              Faça parte da <strong>WOLFDEV</strong>
-            </h1>
-            <RegisterFormBox>
-              <DefaultInput
-                name="email"
-                title="Email*"
-                placeholder="Digite seu Email..."
-                type="text"
-                formMethods={formMethods}
-              />
-              <DefaultInput
-                name="password"
-                title="Senha*"
-                placeholder="Digite sua Senha..."
-                type="password"
-                showPasswordIcon
-                formMethods={formMethods}
-              />
-              <DefaultInput
-                name="confirmPassword"
-                title="Confirme sua senha*"
-                placeholder="Confirme sua senha..."
-                type="password"
-                showPasswordIcon
-                formMethods={formMethods}
-              />
-            </RegisterFormBox>
-            <DefaultButton active fullsize loading={loading}>
-              ENTRAR
-            </DefaultButton>
-            <RegisterTextBox>
-              <span>Já tem uma conta?</span>
-              <Link to="/login">ENTRAR</Link>
-            </RegisterTextBox>
-          </RegisterForm>
+          <RegisterContainerForm>
+            <RegisterForm onSubmit={handleSubmit(handleFormSubmit)}>
+              <h1>
+                Faça parte da <strong>WOLFDEV</strong>
+              </h1>
+              <RegisterFormBox>
+                <DefaultSelect>
+                  <option value="">Eu sou desenvolvedor</option>
+                  <option value="">Eu sou uma empresa</option>
+                </DefaultSelect>
+                <DefaultInput
+                  name="nome"
+                  title="Nome"
+                  placeholder="Seu nome completo"
+                  type="text"
+                  formMethods={formMethods}
+                />
+                <DefaultInput
+                  name="email"
+                  title="Email"
+                  placeholder="Digite seu email"
+                  type="text"
+                  formMethods={formMethods}
+                />
+                <DefaultInput
+                  name="password"
+                  title="Senha"
+                  placeholder="Digite sua senha"
+                  type="password"
+                  showPasswordIcon
+                  formMethods={formMethods}
+                />
+                <DefaultInput
+                  name="confirmPassword"
+                  title="Confirme sua senha"
+                  placeholder="Confirme sua senha"
+                  type="password"
+                  showPasswordIcon
+                  formMethods={formMethods}
+                />
+              </RegisterFormBox>
+              <DefaultButton active fullsize loading={loading}>
+                CADASTRAR
+              </DefaultButton>
+              <RegisterTextBox>
+                <span>Já tem uma conta?</span>
+                <Link to="/login">ENTRAR</Link>
+              </RegisterTextBox>
+            </RegisterForm>
+          </RegisterContainerForm>
         ) : (
           <RegisterForm onSubmit={handleSubmit(handleFormSubmitConfirmation)}>
             <h1>
