@@ -1,13 +1,6 @@
-/* eslint-disable no-unneeded-ternary */
-/* eslint-disable prettier/prettier */
-/* eslint-disable no-unused-vars */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { ChangeEvent, useState } from 'react'
 import { get } from 'lodash'
 import InputMask from 'react-input-mask'
-
-import { useController } from 'react-hook-form'
 
 import {
   DefaultInputContainer,
@@ -30,14 +23,13 @@ interface DefaultInputProps {
   value?: number | string
   max?: number
   showPasswordIcon?: boolean
-  formMethods?: any
   defaultValue?: string
   handleChange?: (value: ChangeEvent<HTMLInputElement>) => void
   mask?: string | Array<string>
   maskChar?: string | undefined | null
 }
 
-const DefaultInput = ({
+export const DefaultInput = ({
   placeholder,
   title,
   size,
@@ -47,32 +39,12 @@ const DefaultInput = ({
   defaultValue = '',
   max,
   showPasswordIcon,
-  formMethods,
   mask,
   maskChar = null
 }: DefaultInputProps) => {
   const [isPasswordVisibled, setIsPasswordVisibled] = useState(false)
   const [passwordType, setIsPasswordType] = useState('password')
   const [focusColor, setIsFocusColor] = useState(false)
-
-  const { control, errors } = formMethods
-
-  const {
-    field: { onChange, onBlur, value, ...inputProps }
-  } = useController({
-    name,
-    control,
-    defaultValue
-  })
-
-  let errorProps = {}
-  const error = get(errors, name)
-  if (error) {
-    errorProps = {
-      error: true,
-      helperText: error.message
-    }
-  }
 
   const handleSwitchImage = () => {
     if (isPasswordVisibled) return <EyeSlash />
@@ -90,37 +62,23 @@ const DefaultInput = ({
   }
   return (
     <div style={{ width: '100%' }}>
-      <DefaultInputContainerText>
-        {/* errors={errors[name]?.message ? true : false} */}
-        {title}
-      </DefaultInputContainerText>
+      <DefaultInputContainerText>{title}</DefaultInputContainerText>
       <DefaultInputContainer
         size={size}
         onFocus={() => setIsFocusColor(true)}
         onBlur={() => setIsFocusColor(false)}
         colored={focusColor}
-        // errors={errors[name]?.message ? true : false}
       >
         <div style={{ background: '#121214' }}>
           {img ? <img src={img} alt="R$" /> : null}
           {mask ? (
-            <InputMask
-              mask={mask}
-              maskPlaceholder={null}
-              {...{
-                onChange,
-                onBlur,
-                value,
-                maskChar
-              }}
-            >
+            <InputMask mask={mask}>
               {() => (
                 <DefaultInputContainerInput
                   type={type === 'password' ? passwordType : type}
                   placeholder={placeholder}
                   maxLength={max || undefined}
                   defaultValue={defaultValue}
-                  {...inputProps}
                 />
               )}
             </InputMask>
@@ -129,13 +87,6 @@ const DefaultInput = ({
               type={type === 'password' ? passwordType : type}
               placeholder={placeholder}
               maxLength={max || undefined}
-              {...{
-                onChange,
-                onBlur,
-                value
-              }}
-              {...inputProps}
-              {...errorProps}
             />
           )}
 
@@ -146,11 +97,7 @@ const DefaultInput = ({
           ) : null}
         </div>
       </DefaultInputContainer>
-      <DefaultInputTitleBox>
-        {errors && <strong>{errors[name]?.message}</strong>}
-      </DefaultInputTitleBox>
+      <DefaultInputTitleBox></DefaultInputTitleBox>
     </div>
   )
 }
-
-export default DefaultInput

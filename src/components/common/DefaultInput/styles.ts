@@ -8,26 +8,25 @@ interface DefaultInputStyleProps {
 }
 
 export const DefaultInputContainerText = styled.label<DefaultInputStyleProps>`
-  font-size: clamp(1rem, 0.4rem + 0.6vw, 2rem);
-  color: ${props => (props.errors ? 'var(--red-600)' : 'var(--gray-100)')};
+  font-size: clamp(1rem, 0.4rem + 0.6vw, 1rem);
+  color: ${(props) => (props.errors ? 'var(--red-600)' : 'var(--dark-300)')};
 `
 
 export const DefaultInputContainer = styled.div<DefaultInputStyleProps>`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: ${props => (props.size ? props.size : '100%')};
+  width: ${(props) => (props.size ? props.size : '100%')};
   overflow: auto;
   margin-top: 0.5rem;
   border: 1px solid
-    ${props =>
+    ${(props) =>
       !props.errors
         ? props.colored
           ? 'var(--purple-500)'
           : 'var(--gray-800)'
         : 'var(--red-600)'};
   border-radius: 0.5rem;
-
   > div {
     display: flex;
     align-items: center;
@@ -56,7 +55,7 @@ export const DefaultInputContainerInput = styled.input<DefaultInputStyleProps>`
   background-color: var(--gray-800);
   color: var(--dark-400);
   font-size: clamp(1rem, 0.7rem + 0.3vw, 4rem);
-  padding: 0 1.6rem;
+  padding: 0 1rem;
   border: 0;
   -moz-appearance: textfield;
   appearance: textfield;
