@@ -8,6 +8,8 @@ import Register from '../pages/Register'
 // It's only for test
 import BottomSection from '../pages/Landing/BottomSection'
 import { RedirectToRegister } from '../pages/RedirectToRegister'
+import { DevRegister } from '../pages/DevRegister'
+import { LayoutRegister } from '../layouts/LayoutRegister'
 
 function GlobalRoutes() {
   return (
@@ -16,7 +18,10 @@ function GlobalRoutes() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/app*" element={<BottomSection />} />
-      <Route path="/redirecttoregister*" element={<RedirectToRegister />} />
+      <Route path="/" element={<LayoutRegister />}>
+        <Route path="/redirecttoregister" element={<RedirectToRegister />} />
+        <Route path="/devregister" element={<DevRegister />} />
+      </Route>
     </Routes>
   )
 }

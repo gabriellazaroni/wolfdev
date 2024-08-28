@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { Auth } from 'aws-amplify'
 
-import DefaultInput from '../../components/common/DefaultInput'
+import { DefaultInput } from '../../components/common/DefaultInput'
 import DefaultButton from '../../components/common/DefaultButton'
 
 import {
@@ -132,14 +132,12 @@ function Register() {
                   title="Nome"
                   placeholder="Seu nome completo"
                   type="text"
-                  formMethods={formMethods}
                 />
                 <DefaultInput
                   name="email"
                   title="Email"
                   placeholder="Digite seu email"
                   type="text"
-                  formMethods={formMethods}
                 />
                 <DefaultInput
                   name="password"
@@ -147,7 +145,6 @@ function Register() {
                   placeholder="Digite sua senha"
                   type="password"
                   showPasswordIcon
-                  formMethods={formMethods}
                 />
                 <DefaultInput
                   name="confirmPassword"
@@ -155,7 +152,6 @@ function Register() {
                   placeholder="Confirme sua senha"
                   type="password"
                   showPasswordIcon
-                  formMethods={formMethods}
                 />
               </RegisterFormBox>
               <DefaultButton active fullsize loading={loading}>
@@ -180,7 +176,6 @@ function Register() {
                   title="Codigo de verificação*"
                   placeholder="Digite seu Código..."
                   type="text"
-                  formMethods={formMethods}
                 />
               </RegisterFormBox>
             </RegisterFormBox>

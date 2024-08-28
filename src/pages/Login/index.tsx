@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { Auth } from 'aws-amplify'
 
-import DefaultInput from '../../components/common/DefaultInput'
+import { DefaultInput } from '../../components/common/DefaultInput'
 import DefaultButton from '../../components/common/DefaultButton'
 
 import {
@@ -99,7 +99,6 @@ function Login() {
               title="Email"
               placeholder="Seu email"
               type="text"
-              formMethods={formMethods}
             />
             <DefaultInput
               name="password"
@@ -107,7 +106,6 @@ function Login() {
               placeholder="Sua senha"
               type="password"
               showPasswordIcon
-              formMethods={formMethods}
             />
           </InputsContainer>
           <LoginFormRow>

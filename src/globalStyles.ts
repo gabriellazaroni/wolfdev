@@ -24,62 +24,11 @@ const GlobalStyle = createGlobalStyle`
 
         --purple-500: #bf59fd;
 
-        --blue-100: #D0F8FD;
-        --blue-200: #A3EBFC;
-        --blue-300: #79D8FA;
-        --blue-400: #5AC4F7;
-        --blue-500: #2DA3F4;
-        --blue-600: #217CCC;
-        --blue-700: #185AA6;
-        --blue-800: #113F82;
-        --blue-900: #0D2D69;
-
-        --yellow-100: #FFFACA;
-        --yellow-200: #FFF498;
-        --yellow-300: #FFEE6B;
-        --yellow-400: #FFE74F;
-        --yellow-500: #FFDD35;
-        --yellow-600: #D6B62C;
-        --yellow-700: #AE9223;
-        --yellow-800: #88711B;
-        --yellow-900: #6F5A16;
-
-        --red-100: #FFE1DB;
-        --red-200: #FEBFB8;
-        --red-300: #FE9796;
-        --red-400: #FE7D86;
-        --red-500: #FE5770;
-        --red-600: #D53F62;
-        --red-700: #AD2C55;
-        --red-800: #871D48;
-        --red-900: #6E1441;
-
-        --green-100: #EEFAC8;
-        --green-200: #DBF598;
-        --green-300: #BAE468;
-        --green-400: #97CB47;
-        --green-500: #6BAC29;
-        --green-600: #559022;
-        --green-700: #41761C;
-        --green-800: #305D16;
-        --green-900: #254C12;
-
-        --green: #BAE468;
-        --ligth-green: #A9C58E;
-        --dark-green: #254C12;
-
-        --blue: #088CE8;
-        --ligth-blue: #9DD7FF;
-
-        --pink: #FE7D86;
-        --ligth-pink: #FFC8C8;
-
         --red: #f20f4b;
+        --red-600: #D53F62;
 
         --white: #FFFFFF;
 
-        --dark-gray: #767676;
-        --ligth-gray: #ACACAC;
         --toastify-color-error: #BF59FD;
 
         --font-xxxxl: clamp(1.75rem, 5vw, 3.75rem); // 60px novo
@@ -123,6 +72,7 @@ const GlobalStyle = createGlobalStyle`
         background-color: var(--dark-900);
         -webkit-font-smoothing: antialiased !important;
         -moz-osx-font-smoothing: grayscale !important;
+        font-family: "Noto Sans", sans-serif
     }
 
     button {

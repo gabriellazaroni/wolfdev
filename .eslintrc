@@ -25,9 +25,13 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "prettier", "jest"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prettier",
+    "jest"
+  ],
   "rules": {
-    "linebreak-style": "off",
     "prefer-const": "off",
     "import/extensions": "off",
     "react/jsx-props-no-spreading": "off",
@@ -35,8 +39,12 @@
     "react/prop-types": "off",
     "prettier/prettier": [
       "error",
-      { "semi": false },
-      { "usePrettierrc": true }
+      {
+        "semi": false
+      },
+      {
+        "usePrettierrc": true
+      }
     ],
     "no-use-before-define": "off",
     "no-unused-vars": "off",

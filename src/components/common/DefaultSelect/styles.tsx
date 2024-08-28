@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import styled from 'styled-components'
+import arrow from '../../../assets/icons/purple-down-arrow.svg'
 
 interface DefaultInputStyleProps {
   size?: string
@@ -7,12 +8,16 @@ interface DefaultInputStyleProps {
   colored?: boolean
 }
 
-export const DefaultInputContainerText = styled.label<DefaultInputStyleProps>`
-  font-size: clamp(1rem, 0.4rem + 0.6vw, 2rem);
+export const MainContainer = styled.div`
+  width: 100%;
+`
+
+export const DefaultSelectContainerText = styled.label<DefaultInputStyleProps>`
+  font-size: clamp(1rem, 0.4rem + 0.6vw, 1rem);
   color: ${props => (props.errors ? 'var(--red-600)' : 'var(--dark-300)')};
 `
 
-export const DefaultInputContainer = styled.div<DefaultInputStyleProps>`
+export const DefaultSelectContainer = styled.div<DefaultInputStyleProps>`
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -34,7 +39,7 @@ export const DefaultInputContainer = styled.div<DefaultInputStyleProps>`
   }
 `
 
-export const DefaultInputTitleBox = styled.section`
+export const DefaultSelectTitleBox = styled.section`
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -45,16 +50,21 @@ export const DefaultInputTitleBox = styled.section`
   }
 `
 
-export const DefaultInputContainerInput = styled.select<DefaultInputStyleProps>`
-  width: 95%;
+export const DefaulSelectContainerSelect = styled.select<DefaultInputStyleProps>`
+  width: 100%;
   height: 3rem;
   background-color: var(--gray-800);
   color: var(--dark-400);
   font-size: clamp(1rem, 0.7rem + 0.3vw, 4rem);
-  padding: 0 1.4rem;
+  padding-left: 1rem;
+  margin-right: 1rem;
   border: 0;
   -moz-appearance: textfield;
-  appearance: textfield;
+  appearance: none;
+  background-image: url(${arrow});
+  background-repeat: no-repeat;
+  background-position: right 0rem center;
+  background-size: 0.65rem auto;
   ::-webkit-inner-spin-button {
     -webkit-appearance: none;
   }

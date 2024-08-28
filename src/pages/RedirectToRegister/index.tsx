@@ -2,8 +2,6 @@ import React from 'react'
 import {
   ButtonsContainer,
   Container,
-  Header,
-  LogoImg,
   MainContainer,
   SubTitle,
   Title
@@ -11,6 +9,7 @@ import {
 import logo from '../../assets/images/wolf-dev-logo.svg'
 import { useNavigate } from 'react-router-dom'
 import DefaultButton from '../../components/common/DefaultButton'
+import { LogoHeader } from '../../components/LogoHeader'
 
 export function RedirectToRegister() {
   const navigate = useNavigate()
@@ -24,9 +23,6 @@ export function RedirectToRegister() {
   }
   return (
     <>
-      <Header>
-        <LogoImg onClick={handleNavigateToLanding} src={logo} />
-      </Header>
       <Container>
         <MainContainer>
           <Title>

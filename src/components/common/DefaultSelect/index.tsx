@@ -7,10 +7,11 @@ import React, { ChangeEvent, ReactNode, useState } from 'react'
 import InputMask from 'react-input-mask'
 
 import {
-  DefaultInputContainer,
-  DefaultInputContainerInput,
-  DefaultInputContainerText,
-  DefaultInputTitleBox
+  DefaulSelectContainerSelect,
+  DefaultSelectContainer,
+  DefaultSelectContainerText,
+  DefaultSelectTitleBox,
+  MainContainer
 } from './styles'
 
 
@@ -43,11 +44,11 @@ export const DefaultSelect = ({
   children
 }: DefaultSelectProps) => {
   return (
-    <div style={{ width: '100%' }}>
-      <DefaultInputContainerText>
+    <MainContainer>
+      <DefaultSelectContainerText>
         {title}
-      </DefaultInputContainerText>
-      <DefaultInputContainer
+      </DefaultSelectContainerText>
+      <DefaultSelectContainer
         size={size}
       >
         <div style={{ background: '#121214' }}>
@@ -60,23 +61,23 @@ export const DefaultSelect = ({
               }}
             >
               {() => (
-                <DefaultInputContainerInput
+                <DefaulSelectContainerSelect
                   placeholder={placeholder}
                   defaultValue={defaultValue}
                 />
               )}
             </InputMask>
           ) : (
-            <DefaultInputContainerInput
+            <DefaulSelectContainerSelect
               placeholder={placeholder}
             >
               {children}
-            </DefaultInputContainerInput>
+            </DefaulSelectContainerSelect>
           )}
         </div>
-      </DefaultInputContainer>
-      <DefaultInputTitleBox>
-      </DefaultInputTitleBox>
-    </div>
+      </DefaultSelectContainer>
+      <DefaultSelectTitleBox>
+      </DefaultSelectTitleBox>
+    </MainContainer>
   )
 }
