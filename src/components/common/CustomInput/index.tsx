@@ -1,13 +1,12 @@
-import React, { ChangeEvent, ReactNode } from 'react'
-import { ButtonInputImg, Container, Img, Title, Select } from './styles'
+import React, { ChangeEvent } from 'react'
+import { ButtonInputImg, Container, Img, Input, Title } from './styles'
 
 interface PlataformInputProps {
-  children?: ReactNode
   width?: string
   maxWidth?: string
   height?: string
   placeHolder?: string
-  titleSelect?: string
+  titleInput?: string
   type?: string
   typeButton?: 'button' | 'submit'
   name?: string
@@ -15,11 +14,11 @@ interface PlataformInputProps {
   required?: boolean
   value?: string | number
   src?: string
-  onChange?: (event: ChangeEvent<HTMLSelectElement>) => void
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
-export const DefaultSelect = React.forwardRef<
-  HTMLSelectElement,
+export const CustomInput = React.forwardRef<
+  HTMLInputElement,
   PlataformInputProps
 >(
   (
@@ -28,7 +27,7 @@ export const DefaultSelect = React.forwardRef<
       maxWidth,
       height,
       placeHolder,
-      titleSelect,
+      titleInput,
       type,
       typeButton,
       name,
@@ -36,8 +35,7 @@ export const DefaultSelect = React.forwardRef<
       required,
       value,
       src,
-      onChange,
-      children
+      onChange
     },
     ref
   ) => {
@@ -49,19 +47,19 @@ export const DefaultSelect = React.forwardRef<
 
     return (
       <Container>
-        <Title>{titleSelect}</Title>
-        <Select
+        <Title>{titleInput}</Title>
+        <Input
           style={{ ...InputStyle }}
           id={id}
           name={name}
           autoComplete="on"
+          type={type}
+          placeholder={placeHolder}
           required={required}
           onChange={onChange}
           value={value}
           ref={ref}
-        >
-          {children}
-        </Select>
+        />
         <ButtonInputImg type={typeButton}>
           <Img src={src} />
         </ButtonInputImg>

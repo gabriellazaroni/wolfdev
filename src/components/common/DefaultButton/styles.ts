@@ -11,7 +11,7 @@ export const Button = styled.button<ButtonProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  ${props => (props.fullsize ? 'width: 100%;' : '')}
+  ${(props) => (props.fullsize ? 'width: 100%;' : '')}
   height: 3.125rem;
   color: var(--white);
   background-color: Transparent;
@@ -29,7 +29,7 @@ export const Button = styled.button<ButtonProps>`
     background-color: var(--white);
     color: var(--dark-900);
   }
-  ${props =>
+  ${(props) =>
     props.active &&
     `
     background-color: var(--white);
@@ -60,7 +60,7 @@ export const ButtonLink = styled<any>(Link)`
     background-color: var(--white);
     color: var(--dark-900);
   }
-  ${props =>
+  ${(props) =>
     props.active &&
     `
     background-color: var(--white);

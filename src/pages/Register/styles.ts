@@ -15,11 +15,12 @@ export const RegisterImageLogo = styled.img`
   display: flex;
   top: 0.5rem;
   left: 4rem;
-  @media (max-width: 550px) {
+  @media (max-width: 1280px) {
     position: static;
+    margin-top: 32px;
   }
-  @media (max-width: 490px) {
-    left: 7.5rem;
+  @media (max-width: 550px) {
+    margin-top: 0px;
   }
 `
 
@@ -60,7 +61,7 @@ export const RegisterContainerForm = styled.div`
   width: 100%;
   @media (max-width: 550px) {
     padding: 24px;
-    margin-top: 10px;
+    margin-top: 32px;
   }
 `
 

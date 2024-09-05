@@ -11,6 +11,9 @@ export const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  @media (max-width: 1120px) {
+    align-items: center;
+  }
 `
 
 export const TitleText = styled.h1`
@@ -31,4 +34,7 @@ export const FormContainer = styled.div`
   border-radius: 20px;
   max-height: 100%;
   padding: 0px 38px 30px 38px;
+  @media (max-width: 600px) {
+    padding: 0 24px 30px 24px;
+  }
 `
