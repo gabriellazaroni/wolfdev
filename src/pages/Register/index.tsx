@@ -6,7 +6,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { Auth } from 'aws-amplify'
 
-import { DefaultInput } from '../../components/common/DefaultInput'
 import DefaultButton from '../../components/common/DefaultButton'
 
 import {
@@ -22,6 +21,7 @@ import {
 
 import WolfDevlogo from '../../assets/images/wolf-dev-logo.svg'
 import { DefaultSelect } from '../../components/common/DefaultSelect'
+import { CustomInput } from '../../components/common/CustomInput'
 
 interface FormValuesProps {
   email: string
@@ -127,31 +127,29 @@ function Register() {
                   <option value="">Eu sou desenvolvedor</option>
                   <option value="">Eu sou uma empresa</option>
                 </DefaultSelect>
-                <DefaultInput
+                <CustomInput
                   name="nome"
-                  title="Nome"
-                  placeholder="Seu nome completo"
+                  titleInput="Nome"
+                  placeHolder="Seu nome completo"
                   type="text"
                 />
-                <DefaultInput
+                <CustomInput
                   name="email"
-                  title="Email"
-                  placeholder="Digite seu email"
+                  titleInput="Email"
+                  placeHolder="Digite seu email"
                   type="text"
                 />
-                <DefaultInput
+                <CustomInput
                   name="password"
-                  title="Senha"
-                  placeholder="Digite sua senha"
+                  titleInput="Senha"
+                  placeHolder="Digite sua senha"
                   type="password"
-                  showPasswordIcon
                 />
-                <DefaultInput
+                <CustomInput
                   name="confirmPassword"
-                  title="Confirme sua senha"
-                  placeholder="Confirme sua senha"
+                  titleInput="Confirme sua senha"
+                  placeHolder="Confirme sua senha"
                   type="password"
-                  showPasswordIcon
                 />
               </RegisterFormBox>
               <DefaultButton active fullsize loading={loading}>
@@ -171,10 +169,10 @@ function Register() {
             </h1>
             <RegisterFormBox>
               <RegisterFormBox>
-                <DefaultInput
+                <CustomInput
                   name="confirmationCode"
-                  title="Codigo de verificação*"
-                  placeholder="Digite seu Código..."
+                  titleInput="Codigo de verificação*"
+                  placeHolder="Digite seu Código..."
                   type="text"
                 />
               </RegisterFormBox>

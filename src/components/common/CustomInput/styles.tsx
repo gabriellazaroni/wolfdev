@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import arrow from '../../../assets/icons/purple-down-arrow.svg'
 
 export const Container = styled.div`
   display: flex;
@@ -16,7 +15,7 @@ export const Title = styled.h1`
   line-height: 18px;
 `
 
-export const Select = styled.select`
+export const Input = styled.input`
   width: 100%;
   max-width: 100%;
   height: 58px;
@@ -24,14 +23,6 @@ export const Select = styled.select`
   border: 0.8px solid var(--light-purple);
   background: var(--gray-800);
   padding: 20px 0px 20px 23px;
-  appearance: none;
-  background-image: url(${arrow});
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  background-size: 0.65rem auto;
-  ::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-  }
   color: var(--gray-500);
   font-family: 'Roboto', sans-serif;
   font-size: var(--font-n);

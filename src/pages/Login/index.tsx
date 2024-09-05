@@ -5,7 +5,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { Auth } from 'aws-amplify'
 
-import { DefaultInput } from '../../components/common/DefaultInput'
 import DefaultButton from '../../components/common/DefaultButton'
 
 import {
@@ -27,6 +26,7 @@ import { ReactComponent as WolfDevlogo } from '../../assets/images/wolf-dev-logo
 import { ReactComponent as CheckboxActive } from '../../assets/icons/checkboxActive.svg'
 import { ReactComponent as CheckboxNonActive } from '../../assets/icons/checkboxNonActive.svg'
 import { useAuth, AuthContextProps } from '../../providers/Auth'
+import { CustomInput } from '../../components/common/CustomInput'
 
 interface FormValuesProps {
   email: string
@@ -94,18 +94,17 @@ function Login() {
             Entre na <strong>sua conta</strong>
           </h1>
           <InputsContainer>
-            <DefaultInput
+            <CustomInput
               name="email"
-              title="Email"
-              placeholder="Seu email"
+              titleInput="Email"
+              placeHolder="Seu email"
               type="text"
             />
-            <DefaultInput
+            <CustomInput
               name="password"
-              title="Senha"
-              placeholder="Sua senha"
+              titleInput="Senha"
+              placeHolder="Sua senha"
               type="password"
-              showPasswordIcon
             />
           </InputsContainer>
           <LoginFormRow>

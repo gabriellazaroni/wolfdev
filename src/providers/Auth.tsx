@@ -29,7 +29,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       .then((userSession: any) => {
         setUserToken(userSession.idToken.jwtToken)
       })
-      .catch(err => console.log(err.message))
+      .catch((err) => console.log(err.message))
   }
 
   return (

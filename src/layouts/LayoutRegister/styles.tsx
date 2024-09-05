@@ -11,4 +11,8 @@ export const LayoutContainer = styled.div`
   justify-content: center;
   height: 100vh;
   margin-top: 60px;
+  @media (max-width: 720px) {
+    padding: 0 24px 0 24px;
+    margin-top: 32px;
+  }
 `

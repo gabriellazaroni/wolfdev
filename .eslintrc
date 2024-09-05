@@ -37,6 +37,7 @@
     "react/jsx-props-no-spreading": "off",
     "space-before-function-paren": "off",
     "react/prop-types": "off",
+    "react/display-name": "off",
     "prettier/prettier": [
       "error",
       {
