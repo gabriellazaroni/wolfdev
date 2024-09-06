@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const SelectsContainer = styled.form`
+export const FormInputsContainer = styled.form`
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -23,7 +23,6 @@ export const MessageErrorContainer = styled.div`
 export const TextMesssageError = styled.p`
   font-size: 12px;
   color: var(--red-600);
-  margin-top: 4px;
 `
 
 export const ButtonContainer = styled.div`
