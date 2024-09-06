@@ -29,6 +29,16 @@ export const Input = styled.input`
   font-weight: 400;
   line-height: 22px;
   outline: none;
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    background-color: black !important;
+    color: white !important;
+    box-shadow: 0 0 0px 1000px var(--gray-800) inset !important;
+    -webkit-text-fill-color: var(--gray-500) !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
 `
 
 export const ButtonInputImg = styled.button`

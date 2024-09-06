@@ -1,7 +1,7 @@
 import React, { ChangeEvent, ReactNode } from 'react'
 import { ButtonInputImg, Container, Img, Title, Select } from './styles'
 
-interface PlataformInputProps {
+interface PlataformSelectProps {
   children?: ReactNode
   width?: string
   maxWidth?: string
@@ -20,7 +20,7 @@ interface PlataformInputProps {
 
 export const DefaultSelect = React.forwardRef<
   HTMLSelectElement,
-  PlataformInputProps
+  PlataformSelectProps
 >(
   (
     {
@@ -41,7 +41,7 @@ export const DefaultSelect = React.forwardRef<
     },
     ref
   ) => {
-    const InputStyle = {
+    const SelectStyle = {
       width,
       maxWidth,
       height
@@ -51,7 +51,7 @@ export const DefaultSelect = React.forwardRef<
       <Container>
         <Title>{titleSelect}</Title>
         <Select
-          style={{ ...InputStyle }}
+          style={{ ...SelectStyle }}
           id={id}
           name={name}
           autoComplete="on"
