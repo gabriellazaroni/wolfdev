@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form'
 import {
   AddressProps,
   RegisterDevAddressInputsProps
-} from '../pages/DevRegister'
+} from '../pages/DevRegisterPersonalInformation'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { AddressUserDataSchema } from '../schemas/AdressSchema'
 import { useCallback, useEffect } from 'react'

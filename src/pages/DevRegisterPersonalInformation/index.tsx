@@ -23,7 +23,7 @@ export type AddressProps = {
   localidade: string
 }
 
-export function DevRegister() {
+export function DevRegisterPersonalInformation() {
   const { errors, handleFormSubmit, handleSubmit, register } = useCep()
   return (
     <DevRegisterFormContainer

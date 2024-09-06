@@ -23,6 +23,7 @@ export function RedirectToRegister() {
   }
   return (
     <>
+      <LogoHeader />
       <Container>
         <MainContainer>
           <Title>
