@@ -1,5 +1,8 @@
 import { useForm } from 'react-hook-form'
-import { AddressProps, RegisterDevAddressInputs } from '../pages/DevRegister'
+import {
+  AddressProps,
+  RegisterDevAddressInputsProps
+} from '../pages/DevRegister'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { AddressUserDataSchema } from '../schemas/AdressSchema'
 import { useCallback, useEffect } from 'react'
@@ -12,7 +15,7 @@ export const useCep = () => {
     watch,
     setValue,
     formState: { errors }
-  } = useForm<RegisterDevAddressInputs>({
+  } = useForm<RegisterDevAddressInputsProps>({
     resolver: zodResolver(AddressUserDataSchema),
     criteriaMode: 'all',
     mode: 'all',
@@ -20,7 +23,7 @@ export const useCep = () => {
       address: {
         zipCode: '',
         district: '',
-        number: 0,
+        number: '',
         state: '',
         street: '',
         city: ''
@@ -30,7 +33,7 @@ export const useCep = () => {
 
   const zipCode = watch('address.zipCode')
 
-  const handleFormSubmit = (data: RegisterDevAddressInputs) => {
+  const handleFormSubmit = (data: RegisterDevAddressInputsProps) => {
     console.log(data)
   }
 
@@ -50,7 +53,6 @@ export const useCep = () => {
         `https://viacep.com.br/ws/${zipCode}/json/`
       )
       handleSetData(data)
-      console.log(data)
     },
     [handleSetData]
   )
