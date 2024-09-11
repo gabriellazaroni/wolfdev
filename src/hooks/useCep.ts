@@ -1,14 +1,20 @@
 import { useForm } from 'react-hook-form'
-import {
-  AddressProps,
-  RegisterDevAddressInputsProps
-} from '../pages/DevRegisterPersonalInformation'
+import { AddressProps } from '../pages/DevRegisterPersonalInformation'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { AddressUserDataSchema } from '../schemas/AdressSchema'
 import { useCallback, useEffect } from 'react'
 import axios from 'axios'
+import { zipCodeMask } from '../utils/zipCodeMask'
+import { useNavigate } from 'react-router-dom'
+import { z } from 'zod'
+
+export type RegisterDevAddressInputsProps = z.infer<
+  typeof AddressUserDataSchema
+>
 
 export const useCep = () => {
+  const navigate = useNavigate()
+
   const {
     register,
     handleSubmit,
@@ -35,6 +41,7 @@ export const useCep = () => {
 
   const handleFormSubmit = (data: RegisterDevAddressInputsProps) => {
     console.log(data)
+    navigate('/devregister/professionalinformation')
   }
 
   const handleSetData = useCallback(
@@ -56,13 +63,6 @@ export const useCep = () => {
     },
     [handleSetData]
   )
-
-  function zipCodeMask(value: string): string {
-    return value
-      .replace(/\D/g, '')
-      .replace(/^(\d{5})(\d)/, '$1-$2')
-      .substring(0, 9)
-  }
 
   useEffect(() => {
     setValue('address.zipCode', zipCodeMask(zipCode))

@@ -10,6 +10,7 @@ import BottomSection from '../pages/Landing/BottomSection'
 import { RedirectToRegister } from '../pages/RedirectToRegister'
 import { DevRegisterPersonalInformation } from '../pages/DevRegisterPersonalInformation'
 import { LayoutRegister } from '../layouts/LayoutRegister'
+import { DevRegisterProfessionalInformation } from '../pages/DevRegisterProfessionalInformation'
 
 function GlobalRoutes() {
   return (
@@ -23,6 +24,10 @@ function GlobalRoutes() {
         <Route
           path="personalinformation"
           element={<DevRegisterPersonalInformation />}
+        />
+        <Route
+          path="professionalinformation"
+          element={<DevRegisterProfessionalInformation />}
         />
       </Route>
     </Routes>

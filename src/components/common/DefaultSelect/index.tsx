@@ -60,6 +60,7 @@ export const DefaultSelect = React.forwardRef<
           value={value}
           ref={ref}
         >
+          <option value="">{placeHolder || 'Selecione'}</option>
           {children}
         </Select>
         <ButtonInputImg type={typeButton}>

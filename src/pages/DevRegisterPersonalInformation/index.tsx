@@ -8,14 +8,9 @@ import {
   TextMesssageError
 } from './styles'
 import DefaultButton from '../../components/common/DefaultButton'
-import { z } from 'zod'
 import { CustomInput } from '../../components/common/CustomInput'
-import { AddressUserDataSchema } from '../../schemas/AdressSchema'
 import { useCep } from '../../hooks/useCep'
 
-export type RegisterDevAddressInputsProps = z.infer<
-  typeof AddressUserDataSchema
->
 export type AddressProps = {
   bairro: string
   uf: string
