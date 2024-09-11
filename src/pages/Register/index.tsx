@@ -45,6 +45,10 @@ function Register() {
     {} as FormValuesProps
   )
 
+  const handleTeste = () => {
+    navigate('/devregister/personalinformation')
+  }
+
   const handleConnectionRequested = (data: FormValuesProps) => {
     console.log(data.email)
     setLoading(true)
@@ -152,7 +156,12 @@ function Register() {
                   type="password"
                 />
               </RegisterFormBox>
-              <DefaultButton active fullsize loading={loading}>
+              <DefaultButton
+                active
+                fullsize
+                loading={loading}
+                onClick={handleTeste}
+              >
                 CADASTRAR
               </DefaultButton>
               <RegisterTextBox>

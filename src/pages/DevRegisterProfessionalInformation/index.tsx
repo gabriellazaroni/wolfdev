@@ -47,7 +47,7 @@ export function DevRegisterProfessionalInformation() {
 
   const handleFormSubmit = (data: ProfessionalInformationInputsProps) => {
     console.log(data)
-    // navigate('/devregister/professionalinformation')
+    navigate('/devregister/employmentpreferences')
   }
 
   return (
@@ -59,7 +59,7 @@ export function DevRegisterProfessionalInformation() {
         <MessageErrorContainer>
           <DefaultSelect titleSelect="Eu sou" {...register('developer')}>
             <option value="desenvolvedor">Desenvolvedor</option>
-            <option value="freelancer">Freelancer</option>
+            <option value="freelancer">Design</option>
           </DefaultSelect>
           {errors.developer?.message && (
             <TextMesssageError>{errors.developer?.message}</TextMesssageError>
@@ -75,7 +75,7 @@ export function DevRegisterProfessionalInformation() {
               <option value="frontend">Front-end</option>
               <option value="fullstack">Full-stack</option>
             </DefaultSelect>
-            {errors.developer?.message && (
+            {errors.specialty?.message && (
               <TextMesssageError>{errors.specialty?.message}</TextMesssageError>
             )}
           </MessageErrorContainer>
@@ -85,7 +85,7 @@ export function DevRegisterProfessionalInformation() {
               <option value="pleno">Pleno</option>
               <option value="senior">Senior</option>
             </DefaultSelect>
-            {errors.developer?.message && (
+            {errors.seniority?.message && (
               <TextMesssageError>{errors.seniority?.message}</TextMesssageError>
             )}
           </MessageErrorContainer>
@@ -99,7 +99,9 @@ export function DevRegisterProfessionalInformation() {
             <option value="python">Python</option>
             <option value="csharp">C#</option>
           </DefaultSelect>
-          <TextMesssageError>{errors.skills?.message}</TextMesssageError>
+          {errors.skills?.message && (
+            <TextMesssageError>{errors.skills?.message}</TextMesssageError>
+          )}{' '}
         </MessageErrorContainer>
         <ButtonContainer>
           <DefaultButton

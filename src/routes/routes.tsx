@@ -11,6 +11,7 @@ import { RedirectToRegister } from '../pages/RedirectToRegister'
 import { DevRegisterPersonalInformation } from '../pages/DevRegisterPersonalInformation'
 import { LayoutRegister } from '../layouts/LayoutRegister'
 import { DevRegisterProfessionalInformation } from '../pages/DevRegisterProfessionalInformation'
+import { DevRegisterEmploymentPreferences } from '../pages/DevRegisterEmploymentPreferences'
 
 function GlobalRoutes() {
   return (
@@ -28,6 +29,10 @@ function GlobalRoutes() {
         <Route
           path="professionalinformation"
           element={<DevRegisterProfessionalInformation />}
+        />
+        <Route
+          path="employmentpreferences"
+          element={<DevRegisterEmploymentPreferences />}
         />
       </Route>
     </Routes>

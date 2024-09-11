@@ -26,7 +26,7 @@ export const SubTitleText = styled.p`
   font-size: var(--font-sm);
   font-weight: 600;
   color: var(--gray-100);
-  @media (max-width: 503px) {
+  @media (max-width: 1120px) {
     text-align: center;
   }
 `
