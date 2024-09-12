@@ -19,13 +19,6 @@ export type ProfessionalInformationInputsProps = z.infer<
   typeof ProfessionalInformationDataSchema
 >
 
-export type ProfessionalProps = {
-  developer: string
-  specialty: string
-  seniority: string
-  skills: string
-}
-
 export function DevRegisterProfessionalInformation() {
   const navigate = useNavigate()
 
