@@ -67,11 +67,11 @@ export function DevRegisterEmploymentPreferences() {
             titleSelect="Tipo de contrato"
             {...register('contract')}
           >
-            <option value="desenvolvedor">Full-time</option>
-            <option value="freelancer">Part-Time</option>
+            <option value="fulltime">Full-time</option>
+            <option value="parttime">Part-Time</option>
             <option value="freelancer">Freelancer</option>
-            <option value="freelancer">PJ</option>
-            <option value="freelancer">CLT</option>
+            <option value="pj">PJ</option>
+            <option value="clt">CLT</option>
           </DefaultSelect>
           {errors.contract?.message && (
             <TextMesssageError>{errors.contract?.message}</TextMesssageError>

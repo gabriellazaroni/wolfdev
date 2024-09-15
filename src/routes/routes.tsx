@@ -13,6 +13,7 @@ import { LayoutRegister } from '../layouts/LayoutRegister'
 import { DevRegisterProfessionalInformation } from '../pages/DevRegisterProfessionalInformation'
 import { DevRegisterEmploymentPreferences } from '../pages/DevRegisterEmploymentPreferences'
 import { DevRegisterProjectsAndExperience } from '../pages/DevRegisterProjectsAndExperience'
+import { HireRegisterTypeService } from '../pages/HireRegisterTypeService'
 
 function GlobalRoutes() {
   return (
@@ -38,6 +39,12 @@ function GlobalRoutes() {
         <Route
           path="projectsandexperience"
           element={<DevRegisterProjectsAndExperience />}
+        />
+      </Route>
+      <Route path="/hireregister" element={<LayoutRegister />}>
+        <Route
+          path="personalinformation"
+          element={<HireRegisterTypeService />}
         />
       </Route>
     </Routes>
