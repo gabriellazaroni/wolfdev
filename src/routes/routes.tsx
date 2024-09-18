@@ -14,6 +14,7 @@ import { DevRegisterProfessionalInformation } from '../pages/DevRegisterProfessi
 import { DevRegisterEmploymentPreferences } from '../pages/DevRegisterEmploymentPreferences'
 import { DevRegisterProjectsAndExperience } from '../pages/DevRegisterProjectsAndExperience'
 import { HireRegisterTypeService } from '../pages/HireRegisterTypeService'
+import { HireRegisterCompanyData } from '../pages/HireRegisterCompanyData'
 
 function GlobalRoutes() {
   return (
@@ -42,10 +43,8 @@ function GlobalRoutes() {
         />
       </Route>
       <Route path="/hireregister" element={<LayoutRegister />}>
-        <Route
-          path="personalinformation"
-          element={<HireRegisterTypeService />}
-        />
+        <Route path="typeservice" element={<HireRegisterTypeService />} />
+        <Route path="companydata" element={<HireRegisterCompanyData />} />
       </Route>
     </Routes>
   )

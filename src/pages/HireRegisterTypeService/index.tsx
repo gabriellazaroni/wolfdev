@@ -37,7 +37,7 @@ export function HireRegisterTypeService() {
 
   const handleFormSubmit = (data: HireRegisterTypeServiceInputsProps) => {
     console.log(data)
-    // navigate('/devregister/employmentpreferences')
+    navigate('/hireregister/companydata')
   }
 
   return (

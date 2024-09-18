@@ -29,15 +29,15 @@ export const Select = styled.select`
   background-repeat: no-repeat;
   background-position: right 1rem center;
   background-size: 0.65rem auto;
-  ::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-  }
   color: var(--gray-500);
   font-family: 'Roboto', sans-serif;
   font-size: var(--font-n);
   font-weight: 400;
   line-height: 22px;
   outline: none;
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
 `
 
 export const ButtonInputImg = styled.button`
