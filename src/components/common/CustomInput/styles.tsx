@@ -23,7 +23,7 @@ export const Input = styled.input`
   border: 0.8px solid var(--light-purple);
   background: var(--gray-800);
   padding: 20px 0px 20px 23px;
-  color: var(--gray-500);
+  color: var(--gray-100);
   font-family: 'Roboto', sans-serif;
   font-size: var(--font-n);
   font-weight: 400;
@@ -38,6 +38,9 @@ export const Input = styled.input`
     box-shadow: 0 0 0px 1000px var(--gray-800) inset !important;
     -webkit-text-fill-color: var(--gray-500) !important;
     transition: background-color 5000s ease-in-out 0s;
+  }
+  &::placeholder {
+    color: var(--gray-500);
   }
 `
 
