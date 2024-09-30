@@ -7,7 +7,7 @@ export const TypingAnimation = styled.h1`
   font-weight: 400;
   color: var(--white);
   white-space: pre-wrap;
-  display: inline-block; /* Garante que o container se ajuste ao tamanho do conteúdo */
+  display: inline-block;
   height: 260px;
   @media (max-width: 940px) {
     height: 340px;

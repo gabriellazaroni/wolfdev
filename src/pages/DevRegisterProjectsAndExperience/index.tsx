@@ -38,7 +38,7 @@ export function DevRegisterProjectsAndExperience() {
 
   const handleFormSubmit = (data: ProjectsAndExperienceInputsProps) => {
     console.log(data)
-    // navigate('/devregister/employmentpreferences')
+    navigate('/devprofile')
   }
 
   return (

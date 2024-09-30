@@ -45,7 +45,7 @@ export function DevRegisterEmploymentPreferences() {
 
   const handleFormSubmit = (data: EmploymentPreferencesInputsProps) => {
     console.log(data)
-    // navigate('/devregister/pojectsandexperience')
+    navigate('/devregister/projectsandexperience')
   }
 
   const wageMonth = watch('wageMonth')
