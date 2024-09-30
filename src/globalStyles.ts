@@ -5,7 +5,9 @@ const GlobalStyle = createGlobalStyle`
         --white: #FFFFFF;
 
         --gray-100: #C4C4CC;
+        --gray-200: #7E7E7E;
         --gray-500: #505059;
+        --gray-600: #4B4B50;
         --gray-700: #1A1A1E;
         --gray-800: #121214;
 
@@ -50,7 +52,8 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 400;
 
         ::-webkit-scrollbar-track {
-            background-color: transparent;
+            background-color:
+            #352043;
         }
 
         ::-webkit-scrollbar {
@@ -61,6 +64,7 @@ const GlobalStyle = createGlobalStyle`
 
         ::-webkit-scrollbar-thumb {
             background: var(--purple-500);
+            border-radius: 10px;
         }
     }
 
