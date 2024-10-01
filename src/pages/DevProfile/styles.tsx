@@ -54,20 +54,8 @@ export const MenuItensContainer = styled.section`
   margin-top: 30px;
 `
 
-export const IconAndItensMenuContainer = styled.h1`
-  display: flex;
-  gap: 10px;
-`
-
 export const IconImg = styled.img`
   display: block;
-`
-
-export const TextIconMenu = styled.a`
-  font-size: var(--font-n);
-  font-weight: 700;
-  color: var(--white);
-  cursor: pointer;
 `
 
 export const MainContainer = styled.main`
@@ -224,7 +212,6 @@ export const SkillTableContainer = styled.div`
   width: 100%;
   max-height: 210px;
   border-radius: 12px;
-  border-top-right-radius: 0px;
   background-color: var(--gray-800);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
   margin-top: 30px;
@@ -234,7 +221,6 @@ export const SkillTableContainer = styled.div`
   }
   @media (max-width: 700px) {
     max-height: 100%;
-    border-top-right-radius: 12px;
   }
 `
 
@@ -460,4 +446,43 @@ export const JobInfoText = styled.p`
   font-size: var(--font-md);
   font-weight: 400;
   color: var(--gray-100);
+`
+
+export const FormInputsContainer = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 561px;
+  margin-top: 24px;
+  justify-content: center;
+  margin: 35px auto 0 auto;
+  @media(max-width: 640px) {
+    gap: 12px;
+  }
+`
+
+export const DivisorSelectContainer = styled.div`
+  display: flex;
+  gap: 37px;
+  @media(max-width: 640px) {
+    flex-direction: column;
+    gap: 12px;
+  }
+`
+
+export const MessageErrorContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`
+
+export const TextMesssageError = styled.p`
+  font-size: 12px;
+  color: var(--red-600);
+`
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: end;
 `
