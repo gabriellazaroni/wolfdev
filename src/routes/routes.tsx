@@ -23,7 +23,7 @@ function GlobalRoutes() {
       <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/app*" element={<BottomSection />} />
+      <Route path="/app" element={<BottomSection />} />
       <Route path="/redirecttoregister" element={<RedirectToRegister />} />
       <Route path="/devprofile" element={<DevProfile />} />
       <Route path="/devregister" element={<LayoutRegister />}>

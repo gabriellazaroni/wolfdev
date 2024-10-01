@@ -11,11 +11,7 @@
     "plugin:@typescript-eslint/recommended",
     "eslint:recommended",
     "plugin:jest/recommended",
-    "plugin:react/recommended",
-    "prettier/@typescript-eslint",
-    "prettier/standard",
-    "prettier/react",
-    "plugin:prettier/recommended"
+    "plugin:react/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -28,7 +24,6 @@
   "plugins": [
     "react",
     "@typescript-eslint",
-    "prettier",
     "jest"
   ],
   "rules": {
@@ -38,15 +33,6 @@
     "space-before-function-paren": "off",
     "react/prop-types": "off",
     "react/display-name": "off",
-    "prettier/prettier": [
-      "error",
-      {
-        "semi": false
-      },
-      {
-        "usePrettierrc": true
-      }
-    ],
     "no-use-before-define": "off",
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "off",
