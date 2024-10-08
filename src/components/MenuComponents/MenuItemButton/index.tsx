@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { CustomModal } from '../CustomModal'
+import { CustomModal } from '../../CustomModal'
 import {
   ButtonAndTitleContainer,
   IconAndItensMenuContainer,
@@ -11,7 +11,7 @@ import {
   TitleModal
 } from './styles'
 
-import closeButton from '../../assets/icons/close-button.svg'
+import closeButton from '../../../assets/icons/close-button.svg'
 
 interface TesteProps {
   isShowing: boolean;

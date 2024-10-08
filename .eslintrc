@@ -36,6 +36,7 @@
     "no-use-before-define": "off",
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "off",
-    "no-undef": "off"
+    "no-undef": "off",
+    "brace-style": "off"
   }
 }
