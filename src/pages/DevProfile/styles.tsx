@@ -239,7 +239,6 @@ export const TableCell = styled.td`
   }
   &:nth-child(4) {
     @media (max-width: 700px) {
-      /* font-size: 12px; */
       text-align: right;
     }
   }

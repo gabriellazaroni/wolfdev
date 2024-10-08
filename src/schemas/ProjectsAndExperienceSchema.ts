@@ -13,5 +13,5 @@ export const ProjectsAndExperienceDataSchema = z.object({
       /(https?:\/\/)?(www\.)?linkedin\.com\/in\/[A-z0-9_-]+/,
       'Insira uma URL válida do LinkedIn'
     ),
-  site: z.string().url('Insira uma URL válida para o portfólio ou site') // Aqui pode manter o .url()
+  site: z.string().url('Insira uma URL válida para o portfólio ou site')
 })
