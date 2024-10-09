@@ -12,12 +12,7 @@ import personIcon from '../../../assets/icons/person.svg'
 export type PersonalInfoEditInputsProps = z.infer<typeof PersonalInfoEditSchema>;
 
 export function PersonalInfoForm() {
-  const [modals, setModals] = useState({
-    personalInfo: false,
-    notifications: false,
-    password: false,
-    account: false
-  })
+  const [modals, setModals] = useState(false)
   const {
     register,
     handleSubmit,
@@ -37,30 +32,24 @@ export function PersonalInfoForm() {
     }
   })
 
-  const handleToggleModal = (modalName: keyof typeof modals) => {
-    setModals((prevState) => ({
-      ...prevState,
-      [modalName]: !prevState[modalName]
-    }))
+  const handleOpenModal = () => {
+    setModals(prevState => !prevState)
   }
 
-  const handleFormSubmit = (data: PersonalInfoEditInputsProps, modalName: keyof typeof modals) => {
+  const handleFormSubmit = (data: PersonalInfoEditInputsProps) => {
     console.log(data)
-    setModals((prevState) => ({
-      ...prevState,
-      [modalName]: false
-    }))
     reset()
   }
+
   return (
     <MenuItemButtton
-      isShowing={modals.personalInfo}
-      onRequestClose={() => handleToggleModal('personalInfo')}
+      isShowing={modals}
+      onRequestClose={handleOpenModal}
       title="Informações Pessoais"
       icon={personIcon}
-      toggleModal={() => handleToggleModal('personalInfo')}
+      toggleModal={handleOpenModal}
     >
-      <FormInputsContainer onSubmit={handleSubmit((data) => handleFormSubmit(data, 'personalInfo'))}>
+      <FormInputsContainer onSubmit={handleSubmit(handleFormSubmit)}>
         <DivisorSelectContainer>
           <MessageErrorContainer>
             <CustomInput titleInput="Eu sou" placeHolder="Nome" {...register('name')} />
