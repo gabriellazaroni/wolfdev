@@ -14,6 +14,7 @@ import padlockIcon from '../../../assets/icons/padlock.svg'
 import circleIcon from '../../../assets/icons/purple-circle.svg'
 import { PersonalInfoForm } from '../PersonalInfoForm'
 import { NotificationForm } from '../NotificationsForm'
+import { PasswordForm } from '../PasswordForm'
 
 export type PersonalInfoEditInputsProps = z.infer<typeof PersonalInfoEditSchema>;
 
@@ -40,16 +41,7 @@ export function MenuContainer() {
       <MenuItensContainer>
         <PersonalInfoForm />
         <NotificationForm />
-
-        <MenuItemButtton
-          isShowing={modals.password}
-          onRequestClose={() => handleToggleModal('password')}
-          title="Senha"
-          icon={padlockIcon}
-          toggleModal={() => handleToggleModal('password')}
-        >
-          <h1>gabriel</h1>
-        </MenuItemButtton>
+        <PasswordForm />
 
         <MenuItemButtton
           isShowing={modals.account}

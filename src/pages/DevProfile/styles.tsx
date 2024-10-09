@@ -254,7 +254,7 @@ export const SidebarRight = styled.div`
   flex-direction: column;
 
   @media (max-width: 1200px) {
-    order: -1; /* Coloca o SidebarRight no topo */
+    order: -1;
     max-width: 100%;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;

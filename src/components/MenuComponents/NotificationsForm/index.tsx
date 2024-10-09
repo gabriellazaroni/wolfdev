@@ -26,9 +26,7 @@ import bellIcon from '../../../assets/icons/bell.svg'
 export type NotificationsMenuProps = z.infer<typeof NotificationsMenuSchema>;
 
 export function NotificationForm() {
-  const [modals, setModals] = useState({
-    notifications: false
-  })
+  const [modals, setModals] = useState(false)
 
   const {
     register,
@@ -53,11 +51,8 @@ export function NotificationForm() {
 
   const toggleValues = watch()
 
-  const handleModal = (modalName: keyof typeof modals) => {
-    setModals((prevState) => ({
-      ...prevState,
-      [modalName]: !prevState[modalName]
-    }))
+  function handleOpenModal() {
+    setModals(prevState => !prevState)
   }
 
   const handleToggleChange = (toggleName: keyof NotificationsMenuProps) => {
@@ -88,19 +83,19 @@ export function NotificationForm() {
     }
   }
 
-  const handleFormSubmit = (data: NotificationsMenuProps, modalName: keyof typeof modals) => {
+  const handleFormSubmit = (data: NotificationsMenuProps) => {
     console.log(data)
   }
 
   return (
     <MenuItemButtton
-      isShowing={modals.notifications}
-      onRequestClose={() => handleModal('notifications')}
+      isShowing={modals}
+      onRequestClose={handleOpenModal}
       title="Notificações"
       icon={bellIcon}
-      toggleModal={() => handleModal('notifications')}
+      toggleModal={handleOpenModal}
     >
-      <FormInputsContainer onSubmit={handleSubmit((data) => handleFormSubmit(data, 'notifications'))}>
+      <FormInputsContainer onSubmit={handleSubmit(handleFormSubmit)}>
         <MainContainer>
           <WarningMesssageContainer>
             <TitleWarining>Importante</TitleWarining>
