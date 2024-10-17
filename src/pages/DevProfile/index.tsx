@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import * as Styled from './styles'
 import { ContainerBox } from '../../components/ContainerBox'
 import { GithubContainerBox } from '../../components/GithubContainerBox'
-
 import searchIcon from '../../assets/icons/gray-search.svg'
 import projectIcon from '../../assets/icons/project.svg'
 import habilityIcon from '../../assets/icons/hability.svg'
