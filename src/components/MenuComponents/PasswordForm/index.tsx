@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { z } from 'zod'
-import { PersonalInfoEditSchema } from '../../../schemas/PersonalInfoEditSchema'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { MenuItemButtton } from '../MenuItemButton'
