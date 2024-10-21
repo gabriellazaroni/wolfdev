@@ -191,7 +191,7 @@ export function NotificationForm() {
             border="var(--purple-500)"
             type="submit"
           >
-            AVANÇAR
+            SALVAR
           </DefaultButton>
         </ButtonContainer>
       </FormInputsContainer>
