@@ -4,9 +4,9 @@ export const MainContainer = styled.div`
   background-color: var(--gray-700);
   border-radius: 20px;
   z-index: 101;
-  max-width: 350px;
   width: 100%;
-  @media (max-width: 1200px) {
+  padding: 0px 24px;
+  @media (max-width: 1340px) {
     position: fixed;
     top: 60px;
     right: 32px;
@@ -25,7 +25,7 @@ export const ImgLogo = styled.img`
   display: block;
   margin: 0 auto;
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1340px) {
     display: none;
   }
 `
@@ -34,7 +34,6 @@ export const MenuItensContainer = styled.section`
   display: flex;
   flex-direction: column;
   gap: 30px;
-  margin-left: 24px;
   margin-top: 30px;
 `
 

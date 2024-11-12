@@ -2,28 +2,23 @@ import React, { useContext } from 'react'
 import * as Styled from './styles'
 import { ContainerBox } from '../../components/ContainerBox'
 import { GithubContainerBox } from '../../components/GithubContainerBox'
-import searchIcon from '../../assets/icons/gray-search.svg'
 import projectIcon from '../../assets/icons/project.svg'
 import habilityIcon from '../../assets/icons/hability.svg'
 import settingsIcon from '../../assets/icons/dots-settings.svg'
 import outlinedBellIcon from '../../assets/icons/outlined-bell.svg'
-import profilePhoto from '../../assets/images/photo.svg'
 import graphIcon from '../../assets/icons/graph.svg'
 import starsIcon from '../../assets/icons/stars.svg'
 import { MenuContainer } from '../../components/MenuComponents/MenuContainer'
 import { MenuContext } from '../../contexts/MenuContext'
+import { DevProfilePhoto } from '../../components/DevProfilePhoto'
 
 export function DevProfile() {
   const { toggleMenu } = useContext(MenuContext)
 
   return (
     <Styled.GridContainer>
-      <MenuContainer />
+      <MenuContainer maxWidth='350px' />
       <Styled.MainContainer>
-        <Styled.SearchContainer>
-          <Styled.IconSearch src={searchIcon} />
-          <Styled.SearchBar placeholder="Procure por projetos aqui" />
-        </Styled.SearchContainer>
         <Styled.DevInfoContainer>
           <ContainerBox icon={projectIcon} value="6" title="Projetos Github" />
           <ContainerBox icon={habilityIcon} value="5" title="Habilidades" />
@@ -90,9 +85,7 @@ export function DevProfile() {
           <Styled.SettingsProfileIcon src={settingsIcon} onClick={toggleMenu} />
         </Styled.ProfileSettingsContainer>
         <Styled.PhotoContainer>
-          <Styled.CirclePhotoContainer>
-            <Styled.PhotoImg src={profilePhoto} />
-          </Styled.CirclePhotoContainer>
+          <DevProfilePhoto />
           <Styled.NameAndEspecilityContainer>
             <Styled.ProfileNameText>Gabriel</Styled.ProfileNameText>
             <Styled.EspecialityText>Desenvolvedor Front-end</Styled.EspecialityText>
