@@ -16,6 +16,7 @@ import { DevRegisterProjectsAndExperience } from '../pages/DevRegisterProjectsAn
 import { HireRegisterTypeService } from '../pages/HireRegisterTypeService'
 import { HireRegisterCompanyData } from '../pages/HireRegisterCompanyData'
 import { DevProfile } from '../pages/DevProfile'
+import { FeedHirer } from '../pages/FeedHirer'
 
 function GlobalRoutes() {
   return (
@@ -48,6 +49,7 @@ function GlobalRoutes() {
         <Route path="typeservice" element={<HireRegisterTypeService />} />
         <Route path="companydata" element={<HireRegisterCompanyData />} />
       </Route>
+      <Route path="/feedhirer" element={<FeedHirer />} />
     </Routes>
   )
 }

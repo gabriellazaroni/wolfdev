@@ -52,7 +52,7 @@ export function PersonalInfoForm() {
       <FormInputsContainer onSubmit={handleSubmit(handleFormSubmit)}>
         <DivisorSelectContainer>
           <MessageErrorContainer>
-            <CustomInput titleInput="Eu sou" placeHolder="Nome" {...register('name')} />
+            <CustomInput titleInput="Nome" placeHolder="Nome" {...register('name')} />
             {errors.name?.message && <TextMesssageError>{errors.name?.message}</TextMesssageError>}
           </MessageErrorContainer>
           <MessageErrorContainer>

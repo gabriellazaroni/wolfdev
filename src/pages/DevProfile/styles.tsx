@@ -8,8 +8,7 @@ export const GridContainer = styled.div`
   padding: 7px;
   width: 100%;
   max-width: 1920px;
-
-  @media (max-width: 1200px) {
+  @media (max-width: 1100px) {
     flex-direction: column;
     gap: 0px;
     padding: 14px;
@@ -27,7 +26,7 @@ export const MainContainer = styled.main`
   flex-direction: column;
   padding: 18px 28px;
   width: 100%;
-  @media (max-width: 1200px) {
+  @media (max-width: 1100px) {
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
   }
@@ -36,41 +35,10 @@ export const MainContainer = styled.main`
   }
 `
 
-export const SearchContainer = styled.div`
-  position: relative;
-  width: 100%;
-  @media (max-width: 1200px) {
-    display: none;
-  }
-`
-
-export const IconSearch = styled.img`
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-`
-
-export const SearchBar = styled.input`
-  width: 100%;
-  height: 56px;
-  background-color: var(--gray-800);
-  border-radius: 12px;
-  border: none;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-  color: var(--gray-100);
-  font-size: var(--font-sm);
-  padding: 0 42px;
-  &::placeholder {
-    color: var(--gray-500);
-  }
-`
-
 export const DevInfoContainer = styled.div`
   display: flex;
   gap: 17px;
-  margin-top: 30px;
-  @media (max-width: 1200px) {
+  @media (max-width: 1100px) {
     flex-direction: column;
   }
   @media (max-width: 700px) {
@@ -84,7 +52,7 @@ export const ActivityAndGithubContainer = styled.div`
   width: 100%;
   margin-top: 30px;
   gap: 17px;
-  @media (max-width: 1200px) {
+  @media (max-width: 1100px) {
     display: flex;
     flex-direction: column;
   }
@@ -172,7 +140,7 @@ export const GitHubProjectsContainer = styled.div`
 
 export const SkillTableContainer = styled.div`
   width: 100%;
-  max-height: 210px;
+  max-height: 300px;
   border-radius: 12px;
   background-color: var(--gray-800);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
@@ -253,7 +221,7 @@ export const SidebarRight = styled.div`
   max-width: 350px;
   flex-direction: column;
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1100px) {
     order: -1;
     max-width: 100%;
     border-bottom-left-radius: 0px;
@@ -267,7 +235,7 @@ export const SidebarRight = styled.div`
 export const ProfileSettingsContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  @media (max-width: 1200px) {
+  @media (max-width: 1100px) {
     justify-content: end;
   }
 `
@@ -276,8 +244,8 @@ export const SettingsProfileIcon = styled.img`
   display: none;
   cursor: pointer;
   width: 7px;
-  @media (max-width: 1200px) {
-    display: block;
+  @media (max-width: 1340px) {
+    display: flex;
   }
 `
 
@@ -285,7 +253,7 @@ export const ProfilesTextTitle = styled.h1`
   font-size: var(--font-n);
   font-weight: 700px;
   color: var(--gray-100);
-  @media (max-width: 1200px) {
+  @media (max-width: 1100px) {
     display: none;
   }
 `
@@ -300,42 +268,6 @@ export const PhotoContainer = styled.div`
     margin-top: 0px;
   }
 `
-
-export const CirclePhotoContainer = styled.div`
-  position: relative;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  padding: 8px;
-  background: conic-gradient(
-    var(--purple-500) 0deg 120deg,
-    var(--gray-600) 120deg 240deg
-  );
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    right: 8px;
-    bottom: 8px;
-    background-color: var(--gray-700);
-    border-radius: 50%;
-  }
-`
-
-export const PhotoImg = styled.img`
-  position: relative;
-  border-radius: 50%;
-  width: calc(100% - 16px);
-  height: calc(100% - 16px);
-  object-fit: cover;
-  z-index: 1;
-`
-
 export const NameAndEspecilityContainer = styled.div`
   display: flex;
   flex-direction: column;
