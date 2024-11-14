@@ -52,9 +52,8 @@ export const DevContainer = styled.div`
   justify-content: space-between;
   @media(max-width: 970px) {
     flex-direction: column;
-  }
-  @media(max-width: 640px) {
-    gap: 40px;
+    align-items: center;
+    gap: 35px;
   }
 `
 
@@ -66,6 +65,9 @@ export const DevDetailsContainer = styled.div`
 export const PhotoContainer = styled.div`
   display: flex;
   gap: 40px;
+  @media(max-width: 970px) {
+    justify-content: center;
+  }
   @media(max-width: 640px) {
     flex-direction: column;
     align-items: center;
@@ -80,8 +82,8 @@ export const ContainerDevName = styled.div`
 export const StarsAndDevNameContainer = styled.div`
   display: flex;
   gap: 5px;
-  flex-direction: column;
   margin-bottom: 15px;
+  flex-direction: column;
   @media(max-width: 640px) {
     align-items: center;
     margin-bottom: 15px;
@@ -95,6 +97,20 @@ export const DevName = styled.h1`
   font-weight: 700;
   @media(max-width: 640px) {
     font-size: 20px;
+  }
+`
+
+export const LenguagesContainer = styled.div`
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+  @media(max-width: 970px) {
+    margin-top: 30px;
+    justify-content: center;
+  }
+  @media(max-width: 640px) {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 `
 
@@ -126,7 +142,6 @@ export const DevInfoText = styled.p`
   color: var(--white);
   font-size: var(--font-n);
   font-weight: 400;
-
 `
 
 export const IconImg = styled.img`
@@ -134,23 +149,15 @@ export const IconImg = styled.img`
   width: 100px;
 `
 
-export const LenguagesContainer = styled.div`
-  display: flex;
-  gap: 20px;
-  margin-top: 40px;
-  @media(max-width: 640px) {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-`
-
 export const DescriptionContainer = styled.div`
   display: flex;
   width: 100%;
   max-width: 480px;
   margin-top: 40px;
-  @media(max-width: 640px) {
+  @media(max-width: 970px) {
+    max-width: 380px;
     text-align: center;
+    margin-top: 30px;
   }
 `
 
@@ -159,15 +166,16 @@ export const DevPriceContainer = styled.div`
   flex-direction: column;
   gap: 15px;
   margin-right: 120px;
-  @media(max-width: 1340px) {
+  @media(max-width: 1460px) {
     margin-right: 0px;
   }
-  @media(max-width: 640px) {
+  @media(max-width: 970px) {
     align-items: center;
+    gap: 5px;
   }
 `
 
-export const PriceText = styled.div`
+export const PriceText = styled.h1`
   color: var(--gray-100);
   font-size: var(--font-n);
 `
@@ -180,6 +188,9 @@ export const ValueText = styled.p`
 
 export const HireButtonContainer = styled.div`
   display: flex;
+  @media(max-width: 970px) {
+    margin-top: 5px;
+  }
 `
 
 export const RealizedProjectsContainer = styled.div`
