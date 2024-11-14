@@ -20,3 +20,23 @@ export const StyledModal = styled(Modal)`
     padding: 25px 30px;
   }
 `
+
+export const ButtonAndTitleContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+`
+
+export const IconAndTitleContainer = styled.div`
+  display: flex;
+  gap: 10px;
+`
+
+export const ImgIcon = styled.img`
+  display: block;
+`
+
+export const IconCloseButton = styled.img`
+  display: block;
+  cursor: pointer;
+`

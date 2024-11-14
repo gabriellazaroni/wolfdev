@@ -4,15 +4,16 @@ import searchIcon from '../../assets/icons/gray-search.svg'
 import filterIcon from '../../assets/icons/filter.svg'
 
 interface SearchBarProps {
-  value: string
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  value?: string
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onClick?: () => void
 }
-export function SearchBar({ value, onChange }: SearchBarProps) {
+export function SearchBar({ value, onChange, onClick }: SearchBarProps) {
   return (
     <SearchContainer>
       <IconSearch src={searchIcon} />
       <SearchBarInput placeholder='Buscar' value={value} onChange={onChange} />
-      <FilterIcon src={filterIcon} />
+      <FilterIcon src={filterIcon} onClick={onClick} />
     </SearchContainer>
   )
 }

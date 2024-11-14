@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import {
-  NearbyInputContainer,
   ContainerDevName,
   DescriptionContainer,
   DevContainer,
@@ -24,7 +23,9 @@ import {
   DevInfoContainer,
   DevLocationContainer,
   DevLocationText,
-  StarsAndDevNameContainer
+  StarsAndDevNameContainer,
+  HireButtonContainer,
+  TitleModalFilterDev
 } from './styles'
 import { MenuContainer } from '../../components/MenuComponents/MenuContainer'
 import { SearchBar } from '../../components/SearchBar'
@@ -35,12 +36,13 @@ import { CollapsibleText } from '../../components/Collapsibletext'
 import DefaultButton from '../../components/common/DefaultButton'
 import { MenuContext } from '../../contexts/MenuContext'
 import settingsIcon from '../../assets/icons/dots-settings.svg'
-import { DefaultSelect } from '../../components/common/DefaultSelect'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { FilterFeedHirerSchema } from '../../schemas/FilterFeedHirer'
-import { CustomInput } from '../../components/common/CustomInput'
+import { CustomModal } from '../../components/CustomModal'
+import { FilterDevForm } from '../../components/FilterDevForm'
+import filterIcon from '../../assets/icons/filter.svg'
 
 export type FilterFeedHirerProps = z.infer<
   typeof FilterFeedHirerSchema
@@ -48,6 +50,15 @@ export type FilterFeedHirerProps = z.infer<
 
 export function FeedHirer() {
   const { toggleMenu } = useContext(MenuContext)
+  const [isOpen, setIsOpen] = useState(false)
+
+  function handleCloseModal() {
+    setIsOpen(false)
+  }
+
+  function handleOpenModal() {
+    setIsOpen(true)
+  }
 
   const {
     register,
@@ -142,71 +153,7 @@ export function FeedHirer() {
     <GridContainer>
       <MenuContainer maxWidth='350px'>
         <FilterContainerForm>
-          <DefaultSelect
-            titleSelect="Serviço"
-            placeHolder="Todas as profissões"
-            type="text"
-            {...register('service')}
-          >
-            <option value="Back-end Developer">Back-end Developer</option>
-            <option value="Front-end Developer">Front-end Developer</option>
-            <option value="Designer">Designer</option>
-          </DefaultSelect>
-          <DefaultSelect
-            titleSelect="Habilidades"
-            placeHolder="Todas as habilidades"
-            type="text"
-            {...register('skills')}
-          >
-            <option value="JavaScript">JavaScript</option>
-            <option value="React">React</option>
-            <option value="Python">Python</option>
-          </DefaultSelect>
-          <DefaultSelect
-            titleSelect="Profissional"
-            placeHolder="Todos os profissionais"
-            type="text"
-            {...register('professional')}
-          >
-            <option value="Freelancer">Freelancer</option>
-            <option value="Full-time">Full-time</option>
-          </DefaultSelect>
-          <DefaultSelect
-            titleSelect="Senioridade"
-            placeHolder="Todas as senioridades"
-            type="text"
-            {...register('seniority')}
-          >
-            <option value="Senior">Senior</option>
-            <option value="Pleno">Pleno</option>
-            <option value="Junior">Junior</option>
-          </DefaultSelect>
-          <NearbyInputContainer>
-            <DefaultSelect
-              titleSelect="Localização do Profissional"
-              placeHolder="Todos os estados"
-              type="text"
-              {...register('locationState')}
-            >
-              <option value="Minas Gerais">Minas Gerais</option>
-              <option value="São Paulo">São Paulo</option>
-              <option value="Rio de Janeiro">Rio de Janeiro</option>
-            </DefaultSelect>
-            <DefaultSelect
-              placeHolder="Todas as cidades"
-              type="text"
-              {...register('locationCity')}
-            >
-              <option value="Belo Horizonte">Belo Horizonte</option>
-              <option value="São Paulo">São Paulo</option>
-              <option value="Rio de Janeiro">Rio de Janeiro</option>
-            </DefaultSelect>
-          </NearbyInputContainer>
-          <CustomInput
-            titleInput='Preço por hora'
-            placeHolder='Digite o valor'
-            {...register('pricePerHour')}
-          />
+          <FilterDevForm register={register} />
         </FilterContainerForm>
       </MenuContainer>
       <MainContainer>
@@ -214,10 +161,13 @@ export function FeedHirer() {
           <SearchBar
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            onClick={handleOpenModal}
           />
           <SettingsProfileIcon src={settingsIcon} onClick={toggleMenu} />
+          <CustomModal onRequestClose={handleCloseModal} isShowing={isOpen} title='Filtros' icon={filterIcon}>
+            <FilterDevForm register={register} />
+          </CustomModal>
         </SettingsIconContainer>
-
         {filteredDevelopers.map((dev, index) => (
           <DevContainer key={index}>
             <DevDetailsContainer>
@@ -258,15 +208,17 @@ export function FeedHirer() {
             <DevPriceContainer>
               <PriceText>Preço por hora:</PriceText>
               <ValueText>R$ {dev.pricePerHour},00</ValueText>
-              <DefaultButton
-                active
-                backgroundColor="var(--purple-500)"
-                color="var(--white)"
-                border="var(--purple-500)"
-                type="submit"
-              >
-                CONTRATAR
-              </DefaultButton>
+              <HireButtonContainer>
+                <DefaultButton
+                  active
+                  backgroundColor="var(--purple-500)"
+                  color="var(--white)"
+                  border="var(--purple-500)"
+                  type="submit"
+                >
+                  CONTRATAR
+                </DefaultButton>
+              </HireButtonContainer>
               <RealizedProjectsContainer>
                 <RealizedProjectText>
                   Projetos realizados:
@@ -277,6 +229,6 @@ export function FeedHirer() {
           </DevContainer>
         ))}
       </MainContainer>
-    </GridContainer>
+    </GridContainer >
   )
 }

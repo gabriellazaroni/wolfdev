@@ -1,9 +1,7 @@
 import React, { ReactNode } from 'react'
 import { CustomModal } from '../../CustomModal'
 import {
-  ButtonAndTitleContainer,
   IconAndItensMenuContainer,
-  IconAndTitleContainer,
   IconCloseButton,
   IconImg,
   ImgIcon,
@@ -26,15 +24,7 @@ export const MenuItemButtton = ({ isShowing, onRequestClose, title, icon, toggle
   return (
     <>
       <CustomModal isShowing={isShowing} onRequestClose={onRequestClose} title={title} icon={icon}>
-        <ButtonAndTitleContainer>
-          <IconAndTitleContainer>
-            <ImgIcon src={icon} />
-            <TitleModal>
-              {title}
-            </TitleModal>
-          </IconAndTitleContainer>
-          <IconCloseButton src={closeButton} onClick={onRequestClose} />
-        </ButtonAndTitleContainer>
+
         {children}
       </CustomModal>
       <IconAndItensMenuContainer>
