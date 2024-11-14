@@ -24,8 +24,7 @@ import {
   DevLocationContainer,
   DevLocationText,
   StarsAndDevNameContainer,
-  HireButtonContainer,
-  TitleModalFilterDev
+  HireButtonContainer
 } from './styles'
 import { MenuContainer } from '../../components/MenuComponents/MenuContainer'
 import { SearchBar } from '../../components/SearchBar'
