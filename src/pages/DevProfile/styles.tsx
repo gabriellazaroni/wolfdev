@@ -147,7 +147,7 @@ export const SkillTableContainer = styled.div`
   margin-top: 30px;
   overflow-y: auto;
   @media (max-height: 929px) {
-    max-height: 190px;
+    max-height: 265px;
   }
   @media (max-width: 700px) {
     max-height: 100%;

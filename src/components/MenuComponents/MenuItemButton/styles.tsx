@@ -16,16 +16,6 @@ export const TextIconMenu = styled.a`
   cursor: pointer;
 `
 
-export const ButtonAndTitleContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-`
-
-export const IconAndTitleContainer = styled.div`
-  display: flex;
-  gap: 10px;
-`
-
 export const TitleModal = styled.h1`
   font-size: var(--font-md);
   font-weight: 700;

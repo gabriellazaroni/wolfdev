@@ -1,7 +1,9 @@
 import React, { FC, ReactNode } from 'react'
 import ReactDOM from 'react-dom'
 import 'react-modal'
-import { StyledModal } from './styles'
+import { ButtonAndTitleContainer, IconAndTitleContainer, IconCloseButton, ImgIcon, StyledModal } from './styles'
+import closeButtonIcon from '../../assets/icons/close-button.svg'
+import { TitleModal } from '../MenuComponents/MenuItemButton/styles'
 
 export interface ModalProps {
   isShowing?: boolean
@@ -33,6 +35,15 @@ export const CustomModal: FC<ModalProps> = ({
             }
           }}
         >
+          <ButtonAndTitleContainer>
+            <IconAndTitleContainer>
+              <ImgIcon src={icon} />
+              <TitleModal>
+                {title}
+              </TitleModal>
+            </IconAndTitleContainer>
+            <IconCloseButton src={closeButtonIcon} onClick={onRequestClose} />
+          </ButtonAndTitleContainer>
           {children}
         </StyledModal>
       </React.Fragment>,

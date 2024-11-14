@@ -33,4 +33,8 @@ export const FilterIcon = styled.img`
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
+  display: none;
+  @media (max-width: 1340px) {
+    display: block;
+  }
 `
