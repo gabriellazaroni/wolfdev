@@ -1,4 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+
 import {
   ContainerDevName,
   DescriptionContainer,
@@ -24,32 +28,69 @@ import {
   DevLocationContainer,
   DevLocationText,
   StarsAndDevNameContainer,
-  HireButtonContainer
+  HireButtonContainer,
+  ModalHireContainer,
+  ModalDevPriceContainer,
+  ModalInputsHireContainer,
+  ModalInputsTitleHire,
+  InputsAndButtonHireContainerForm,
+  ModalButtonsHireContainer,
+  ModalPhotoContainer,
+  ModalContainerDevName,
+  ModalStarsAndDevNameContainer,
+  ModalDevInfoText,
+  ModalRealizedProjectsContainer
 } from './styles'
 import { MenuContainer } from '../../components/MenuComponents/MenuContainer'
 import { SearchBar } from '../../components/SearchBar'
 import { DevProfilePhoto } from '../../components/DevProfilePhoto'
-import starsIcon from '../../assets/icons/stars.svg'
 import { LenguageBox } from '../../components/LenguageBox'
 import { CollapsibleText } from '../../components/Collapsibletext'
-import DefaultButton from '../../components/common/DefaultButton'
 import { MenuContext } from '../../contexts/MenuContext'
-import settingsIcon from '../../assets/icons/dots-settings.svg'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { z } from 'zod'
-import { FilterFeedHirerSchema } from '../../schemas/FilterFeedHirer'
 import { CustomModal } from '../../components/CustomModal'
 import { FilterDevForm } from '../../components/FilterDevForm'
+import { CustomInput } from '../../components/common/CustomInput'
+import { DefaultSelect } from '../../components/common/DefaultSelect'
+import { HireModalAboutProjectSchema } from '../../schemas/HireModalAboutProjectSchema'
+import DefaultButton from '../../components/common/DefaultButton'
+import settingsIcon from '../../assets/icons/dots-settings.svg'
 import filterIcon from '../../assets/icons/filter.svg'
+import hireIcon from '../../assets/icons/hire.svg'
+import starsIcon from '../../assets/icons/stars.svg'
 
-export type FilterFeedHirerProps = z.infer<
-  typeof FilterFeedHirerSchema
+export type AboutProjectsProps = z.infer<
+  typeof HireModalAboutProjectSchema
 >
+
+type Developer = {
+  name: string;
+  job: string;
+  skills: string[];
+  professional: string;
+  seniority: string;
+  locationCity: string;
+  locationState: string;
+  pricePerHour: string;
+};
+
+const defaultDev: Developer = {
+  name: '',
+  job: '',
+  skills: [],
+  professional: '',
+  seniority: '',
+  locationCity: '',
+  locationState: '',
+  pricePerHour: ''
+}
 
 export function FeedHirer() {
   const { toggleMenu } = useContext(MenuContext)
   const [isOpen, setIsOpen] = useState(false)
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false)
+  const [filteredDevelopers, setFilteredDevelopers] = useState([])
+  const [currentDev, setCurrentDev] = useState<Developer | null>(defaultDev)
+  const [searchQuery, setSearchQuery] = useState('')
 
   function handleCloseModal() {
     setIsOpen(false)
@@ -59,34 +100,35 @@ export function FeedHirer() {
     setIsOpen(true)
   }
 
+  function handleClosePaymentModal() {
+    setIsPaymentModalOpen(false)
+  }
+
+  function handleOpenPaymentModal(dev: Developer) {
+    setCurrentDev(dev)
+    setIsPaymentModalOpen(true)
+  }
+
   const {
     register,
-    watch
-  } = useForm<FilterFeedHirerProps>({
-    resolver: zodResolver(FilterFeedHirerSchema),
+    handleSubmit,
+    formState: { errors }
+  } = useForm<AboutProjectsProps>({
+    resolver: zodResolver(HireModalAboutProjectSchema),
     criteriaMode: 'all',
     mode: 'all',
     defaultValues: {
-      service: '',
-      skills: '',
-      professional: '',
-      seniority: '',
-      locationState: '',
-      locationCity: '',
-      pricePerHour: ''
+      category: '',
+      subCategory: '',
+      projectName: '',
+      coments: ''
     }
   })
 
-  const service = watch('service')
-  const skills = watch('skills')
-  const professional = watch('professional')
-  const seniority = watch('seniority')
-  const locationState = watch('locationState')
-  const locationCity = watch('locationCity')
-  const pricePerHour = watch('pricePerHour')
-
-  const [searchQuery, setSearchQuery] = useState('')
-  const [filteredDevelopers, setFilteredDevelopers] = useState([])
+  const handleFormSubmit = (data: AboutProjectsProps) => {
+    console.log(data)
+    console.log('gabriel')
+  }
 
   const developers = [
     {
@@ -121,38 +163,15 @@ export function FeedHirer() {
     }
   ]
 
-  const handleFilterChange = () => {
-    const filtered = developers.filter(dev => {
-      const matchesSkills = skills ? dev.skills.includes(skills) : true
-      const matchesJob = service ? dev.job === service : true
-      const matchesSeniority = seniority ? dev.seniority === seniority : true
-      const matchesProfessional = professional ? dev.professional === professional : true
-      const matchesLocationCity = locationCity ? dev.locationCity === locationCity : true
-      const matchesLocationState = locationState ? dev.locationState === locationState : true
-      const matchesPricePerHour = pricePerHour ? dev.pricePerHour.includes(pricePerHour) : true
-      const matchesName = searchQuery ? dev.name.toLowerCase().includes(searchQuery.toLowerCase()) : true
-      return matchesSkills &&
-        matchesJob &&
-        matchesProfessional &&
-        matchesName &&
-        matchesSeniority &&
-        matchesLocationCity &&
-        matchesLocationState &&
-        matchesPricePerHour
-    })
-
-    setFilteredDevelopers(filtered)
-  }
-
-  useEffect(() => {
-    handleFilterChange()
-  }, [service, skills, professional, seniority, locationState, locationCity, searchQuery, pricePerHour])
-
   return (
     <GridContainer>
       <MenuContainer maxWidth='350px'>
         <FilterContainerForm>
-          <FilterDevForm register={register} />
+          <FilterDevForm
+            developers={developers}
+            onFilter={setFilteredDevelopers}
+            searchQuery={searchQuery}
+          />
         </FilterContainerForm>
       </MenuContainer>
       <MainContainer>
@@ -161,10 +180,14 @@ export function FeedHirer() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onClick={handleOpenModal}
+            placeHolder='Buscar por nome'
           />
           <SettingsProfileIcon src={settingsIcon} onClick={toggleMenu} />
           <CustomModal onRequestClose={handleCloseModal} isShowing={isOpen} title='Filtros' icon={filterIcon}>
-            <FilterDevForm register={register} />
+            <FilterDevForm
+              developers={developers}
+              onFilter={setFilteredDevelopers}
+            />
           </CustomModal>
         </SettingsIconContainer>
         {filteredDevelopers.map((dev, index) => (
@@ -207,6 +230,7 @@ export function FeedHirer() {
             <DevPriceContainer>
               <PriceText>Preço por hora:</PriceText>
               <ValueText>R$ {dev.pricePerHour},00</ValueText>
+
               <HireButtonContainer>
                 <DefaultButton
                   active
@@ -214,10 +238,94 @@ export function FeedHirer() {
                   color="var(--white)"
                   border="var(--purple-500)"
                   type="submit"
+                  onClick={() => handleOpenPaymentModal(dev)}
                 >
                   CONTRATAR
                 </DefaultButton>
               </HireButtonContainer>
+              <CustomModal onRequestClose={handleClosePaymentModal} isShowing={isPaymentModalOpen} title='Contratar' icon={hireIcon}>
+                <ModalHireContainer>
+                  <DevDetailsContainer>
+                    <ModalPhotoContainer>
+                      <DevProfilePhoto />
+                      <ModalContainerDevName>
+                        <ModalStarsAndDevNameContainer>
+                          <DevName>{currentDev.name}</DevName>
+                          <ModalDevInfoText>{currentDev.job}</ModalDevInfoText>
+                          <IconImg src={starsIcon} />
+                        </ModalStarsAndDevNameContainer>
+                      </ModalContainerDevName>
+                    </ModalPhotoContainer>
+                  </DevDetailsContainer>
+                  <ModalDevPriceContainer>
+                    <PriceText>Preço por hora:</PriceText>
+                    <ValueText>R$ {currentDev.pricePerHour},00</ValueText>
+                    <ModalRealizedProjectsContainer>
+                      <RealizedProjectText>
+                        Projetos realizados:
+                        <ProjectsRealizedNumber> 200</ProjectsRealizedNumber>
+                      </RealizedProjectText>
+                    </ModalRealizedProjectsContainer>
+                  </ModalDevPriceContainer>
+                </ModalHireContainer>
+                <InputsAndButtonHireContainerForm onSubmit={handleSubmit(handleFormSubmit)}>
+                  <ModalInputsHireContainer>
+                    <ModalInputsTitleHire>Sobre o Projeto</ModalInputsTitleHire>
+                    <DefaultSelect
+                      {...register('category')}
+                      placeHolder='Escolha uma categoria'
+                    >
+                      <option>0 - 1</option>
+                      <option>1 - 5</option>
+                      <option>5 - 10</option>
+                      <option>10 +</option>
+                    </DefaultSelect>
+                    <DefaultSelect
+                      {...register('subCategory')}
+                      placeHolder='Escolha uma subcategoria'
+                    >
+                      <option>0 - 1</option>
+                      <option>1 - 5</option>
+                      <option>5 - 10</option>
+                      <option>10 +</option>
+                    </DefaultSelect>
+                    <CustomInput
+                      {...register('projectName')}
+                      name="projectName"
+                      placeHolder="Nome do projeto"
+                      type="text"
+                    />
+                    <CustomInput
+                      {...register('coments')}
+                      name="coments"
+                      placeHolder="Comentários adicionais?"
+                      type="text"
+                    />
+                  </ModalInputsHireContainer>
+                  <ModalButtonsHireContainer>
+                    <DefaultButton
+                      active
+                      backgroundColor="var(--purple-500)"
+                      color="var(--white)"
+                      border="var(--purple-500)"
+                      type="submit"
+                      fontSize='16px'
+                    >
+                      AGENDAR ENTREVISTA
+                    </DefaultButton>
+                    <DefaultButton
+                      active
+                      backgroundColor="var(--purple-500)"
+                      color="var(--white)"
+                      border="var(--purple-500)"
+                      type="submit"
+                      fontSize='16px'
+                    >
+                      SEGUIR PARA PAGAMENTO
+                    </DefaultButton>
+                  </ModalButtonsHireContainer>
+                </InputsAndButtonHireContainerForm>
+              </CustomModal>
               <RealizedProjectsContainer>
                 <RealizedProjectText>
                   Projetos realizados:

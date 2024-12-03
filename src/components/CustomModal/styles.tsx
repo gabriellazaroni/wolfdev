@@ -7,7 +7,7 @@ export const StyledModal = styled(Modal)`
     align-items: center;
     justify-content: center;
     width: 80%;
-    max-width: 39.812rem;
+    max-width: 45.937rem;
     max-height: 80%;
     position: absolute;
     left: 50%;

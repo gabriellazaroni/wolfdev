@@ -2,15 +2,15 @@ import React, { useContext } from 'react'
 import * as Styled from './styles'
 import { ContainerBox } from '../../components/ContainerBox'
 import { GithubContainerBox } from '../../components/GithubContainerBox'
+import { MenuContainer } from '../../components/MenuComponents/MenuContainer'
+import { MenuContext } from '../../contexts/MenuContext'
+import { DevProfilePhoto } from '../../components/DevProfilePhoto'
 import projectIcon from '../../assets/icons/project.svg'
 import habilityIcon from '../../assets/icons/hability.svg'
 import settingsIcon from '../../assets/icons/dots-settings.svg'
 import outlinedBellIcon from '../../assets/icons/outlined-bell.svg'
 import graphIcon from '../../assets/icons/graph.svg'
 import starsIcon from '../../assets/icons/stars.svg'
-import { MenuContainer } from '../../components/MenuComponents/MenuContainer'
-import { MenuContext } from '../../contexts/MenuContext'
-import { DevProfilePhoto } from '../../components/DevProfilePhoto'
 
 export function DevProfile() {
   const { toggleMenu } = useContext(MenuContext)

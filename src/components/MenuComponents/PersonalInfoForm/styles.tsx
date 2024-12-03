@@ -5,7 +5,7 @@ export const FormInputsContainer = styled.form`
   flex-direction: column;
   gap: 24px;
   width: 100%;
-  max-width: 561px;
+  /* max-width: 561px; */
   margin-top: 24px;
 `
 

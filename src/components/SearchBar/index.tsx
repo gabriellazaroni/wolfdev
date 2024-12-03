@@ -7,12 +7,13 @@ interface SearchBarProps {
   value?: string
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   onClick?: () => void
+  placeHolder?: string
 }
-export function SearchBar({ value, onChange, onClick }: SearchBarProps) {
+export function SearchBar({ value, onChange, onClick, placeHolder }: SearchBarProps) {
   return (
     <SearchContainer>
       <IconSearch src={searchIcon} />
-      <SearchBarInput placeholder='Buscar' value={value} onChange={onChange} />
+      <SearchBarInput placeholder={placeHolder} value={value} onChange={onChange} />
       <FilterIcon src={filterIcon} onClick={onClick} />
     </SearchContainer>
   )
