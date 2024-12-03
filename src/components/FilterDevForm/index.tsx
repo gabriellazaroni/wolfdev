@@ -1,18 +1,93 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NearbyInputContainer } from './styles'
 import { DefaultSelect } from '../common/DefaultSelect'
 import { CustomInput } from '../common/CustomInput'
 import { z } from 'zod'
 import { FilterFeedHirerSchema } from '../../schemas/FilterFeedHirer'
-import { UseFormRegister } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
 
-type FilterFeedHirerProps = z.infer<typeof FilterFeedHirerSchema>
+type FilterFeedHirerProps = z.infer<typeof FilterFeedHirerSchema>;
+
+type Developer = {
+  name: string;
+  job: string;
+  skills: string[];
+  professional: string;
+  seniority: string;
+  locationCity: string;
+  locationState: string;
+  pricePerHour: string;
+};
 
 type FilterDevFormProps = {
-  register: UseFormRegister<FilterFeedHirerProps>
-}
+  developers: Developer[];
+  onFilter: (filteredDevelopers: Developer[]) => void;
+  searchQuery?: string; // Adicionamos o searchQuery como prop
+};
 
-export function FilterDevForm({ register }: FilterDevFormProps) {
+export function FilterDevForm({ developers, onFilter, searchQuery }: FilterDevFormProps) {
+  const {
+    register,
+    watch
+  } = useForm<FilterFeedHirerProps>({
+    resolver: zodResolver(FilterFeedHirerSchema),
+    defaultValues: {
+      service: '',
+      skills: '',
+      professional: '',
+      seniority: '',
+      locationState: '',
+      locationCity: '',
+      pricePerHour: ''
+    }
+  })
+
+  const service = watch('service')
+  const skills = watch('skills')
+  const professional = watch('professional')
+  const seniority = watch('seniority')
+  const locationState = watch('locationState')
+  const locationCity = watch('locationCity')
+  const pricePerHour = watch('pricePerHour')
+
+  useEffect(() => {
+    const filtered = developers.filter(dev => {
+      const matchesSkills = skills ? dev.skills.includes(skills) : true
+      const matchesJob = service ? dev.job === service : true
+      const matchesProfessional = professional ? dev.professional === professional : true
+      const matchesSeniority = seniority ? dev.seniority === seniority : true
+      const matchesLocationCity = locationCity ? dev.locationCity === locationCity : true
+      const matchesLocationState = locationState ? dev.locationState === locationState : true
+      const matchesPricePerHour = pricePerHour ? dev.pricePerHour.includes(pricePerHour) : true
+      const matchesName = searchQuery
+        ? dev.name.toLowerCase().includes(searchQuery.toLowerCase())
+        : true
+
+      return (
+        matchesSkills &&
+        matchesJob &&
+        matchesProfessional &&
+        matchesSeniority &&
+        matchesLocationCity &&
+        matchesLocationState &&
+        matchesPricePerHour &&
+        matchesName
+      )
+    })
+
+    onFilter(filtered)
+  }, [
+    service,
+    skills,
+    professional,
+    seniority,
+    locationState,
+    locationCity,
+    pricePerHour,
+    searchQuery
+  ])
+
   return (
     <>
       <DefaultSelect
@@ -76,8 +151,8 @@ export function FilterDevForm({ register }: FilterDevFormProps) {
         </DefaultSelect>
       </NearbyInputContainer>
       <CustomInput
-        titleInput='Preço por hora'
-        placeHolder='Digite o valor'
+        titleInput="Preço por hora"
+        placeHolder="Digite o valor"
         {...register('pricePerHour')}
       />
     </>

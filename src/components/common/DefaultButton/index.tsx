@@ -15,6 +15,7 @@ interface ButtonHeaderProps {
   backgroundColor?: string
   border?: string
   icon?: boolean
+  fontSize?: string
   onClick?: () => void
 }
 
@@ -28,12 +29,14 @@ function DefaultButton({
   backgroundColor,
   border,
   icon,
+  fontSize,
   onClick
 }: ButtonHeaderProps) {
   const buttonStyles = {
     color: color,
     backgroundColor: backgroundColor,
-    border: border
+    border: border,
+    fontSize: fontSize
   }
 
   return !link ? (

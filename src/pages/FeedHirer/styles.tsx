@@ -193,6 +193,109 @@ export const HireButtonContainer = styled.div`
   }
 `
 
+export const ModalHireContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  @media(max-width: 540px) {
+    flex-direction: column;
+  }
+`
+
+export const ModalPhotoContainer = styled.div`
+  display: flex;
+  gap: 20px;
+  @media(max-width: 840px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+`
+
+export const ModalContainerDevName = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+export const ModalStarsAndDevNameContainer = styled.div`
+  display: flex;
+  gap: 5px;
+  margin-bottom: 15px;
+  flex-direction: column;
+  @media(max-width: 840px) {
+    align-items: center;
+    margin-bottom: 0px;
+  }
+`
+
+export const ModalDevInfoText = styled.p`
+  color: var(--white);
+  font-size: var(--font-n);
+  font-weight: 400;
+`
+
+export const ModalDevPriceContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  @media(max-width: 840px) {
+    align-items: center;
+    gap: 5px;
+  }
+  @media(max-width: 540px) {
+    margin-top: 40px;
+  }
+`
+
+export const InputsAndButtonHireContainerForm = styled.form`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  gap: 80px;
+  @media(max-width: 840px) {
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 40px;
+  }
+`
+
+export const ModalInputsHireContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 372px;
+  width: 100%;
+  @media(max-width: 840px) {
+    max-width: none;
+  }
+`
+
+export const ModalInputsTitleHire = styled.div`
+  color: var(--white);
+  font-size: var(--font-n);
+  font-weight: 400;
+`
+
+export const ModalButtonsHireContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  justify-content: end;
+  width: 100%;
+  max-width: 240px;
+  margin-bottom: 10px;
+  @media(max-width: 840px) {
+    max-width: none;
+  }
+`
+
+export const ModalRealizedProjectsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+`
+
 export const RealizedProjectsContainer = styled.div`
   display: flex;
   flex-direction: column;
