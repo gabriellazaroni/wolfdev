@@ -39,21 +39,31 @@ export const MenuItens = styled.div<{ isOpen: boolean }>`
   background-color: var(--dark-500);
 `
 
+export const ItensAndIconsContainer = styled.div`
+  display: flex;
+  gap: 10px;
+`
+
 export const UlMenuContainer = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: end;
-  gap: 10px;
-  align-items: end;
+  gap: 20px;
+  align-items: start;
   color: var(--white);
   list-style: none;
   font-size: 20px;
-  padding: 12px;
 `
 
 export const LiMenuContainer = styled.li`
   cursor: pointer;
   font-weight: 700;
+`
+
+export const IconImg = styled.img`
+  display: block;
+  width: 20px;
+  fill: #bf59fd;
 `
 
 export const HamburgerIcon = styled.div<{ isOpen: boolean }>`

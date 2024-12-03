@@ -291,16 +291,19 @@ export const ModalButtonsHireContainer = styled.div`
 
 export const ModalRealizedProjectsContainer = styled.div`
   display: flex;
-  flex-direction: column;
   gap: 10px;
   margin-top: 20px;
 `
 
 export const RealizedProjectsContainer = styled.div`
   display: flex;
-  flex-direction: column;
   gap: 10px;
   margin-top: 20px;
+`
+
+export const RealizedProjectContainer = styled.div`
+  display: flex;
+  gap: 5px;
 `
 
 export const RealizedProjectText = styled.p`
@@ -327,4 +330,10 @@ export const TitleModalFilterDev = styled.h1`
   color: var(--white);
   font-weight: 700;
   margin-bottom: 30px;
+`
+
+export const MenuHamburgerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 `
