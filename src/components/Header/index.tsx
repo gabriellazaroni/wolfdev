@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-
 import DefaultButton from '../common/DefaultButton'
-
 import {
   HeaderMain,
   ImageLogo,
@@ -9,17 +7,26 @@ import {
   MenuItens,
   ContainerButtons,
   UlMenuContainer,
-  LiMenuContainer
+  LiMenuContainer,
+  ItensAndIconsContainer,
+  IconImg
 } from './styles'
 
-import WolfDevlogo from '../../assets/images/wolf-dev-logo.svg'
 import { useNavigate } from 'react-router-dom'
+import { MenuHamburgerModal } from '../MenuHamburgerModal'
+import WolfDevlogo from '../../assets/images/wolf-dev-logo.svg'
+import loginIcon from '../../assets/icons/login.svg'
+import registerIcon from '../../assets/icons/register.svg'
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
+    setIsMenuOpen(prevState => !prevState)
+  }
+
+  function handleCloseMenuHamburgerModal() {
+    setIsMenuOpen(false)
   }
 
   const navigate = useNavigate()
@@ -43,16 +50,23 @@ function Header() {
           CADASTRAR
         </DefaultButton>
       </ContainerButtons>
-      <MenuItens isOpen={isMenuOpen}>
+
+      <MenuHamburgerModal isShowing={isMenuOpen} onRequestClose={handleCloseMenuHamburgerModal}>
         <UlMenuContainer>
-          <LiMenuContainer onClick={handleNavigateLogin}>
-            Entrar
-          </LiMenuContainer>
-          <LiMenuContainer onClick={handleNavigateSignup}>
-            Cadastrar
-          </LiMenuContainer>
+          <ItensAndIconsContainer>
+            <IconImg src={loginIcon} />
+            <LiMenuContainer onClick={handleNavigateLogin}>
+              Entrar
+            </LiMenuContainer>
+          </ItensAndIconsContainer>
+          <ItensAndIconsContainer>
+            <IconImg src={registerIcon} />
+            <LiMenuContainer onClick={handleNavigateSignup}>
+              Cadastrar
+            </LiMenuContainer>
+          </ItensAndIconsContainer>
         </UlMenuContainer>
-      </MenuItens>
+      </MenuHamburgerModal>
       <HamburgerIcon onClick={toggleMenu} isOpen={isMenuOpen}>
         <div></div>
         <div></div>

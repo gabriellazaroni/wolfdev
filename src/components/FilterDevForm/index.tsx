@@ -23,7 +23,7 @@ type Developer = {
 type FilterDevFormProps = {
   developers: Developer[];
   onFilter: (filteredDevelopers: Developer[]) => void;
-  searchQuery?: string; // Adicionamos o searchQuery como prop
+  searchQuery?: string
 };
 
 export function FilterDevForm({ developers, onFilter, searchQuery }: FilterDevFormProps) {

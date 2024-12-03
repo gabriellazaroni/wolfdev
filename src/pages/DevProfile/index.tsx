@@ -1,9 +1,8 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import * as Styled from './styles'
 import { ContainerBox } from '../../components/ContainerBox'
 import { GithubContainerBox } from '../../components/GithubContainerBox'
 import { MenuContainer } from '../../components/MenuComponents/MenuContainer'
-import { MenuContext } from '../../contexts/MenuContext'
 import { DevProfilePhoto } from '../../components/DevProfilePhoto'
 import projectIcon from '../../assets/icons/project.svg'
 import habilityIcon from '../../assets/icons/hability.svg'
@@ -11,9 +10,23 @@ import settingsIcon from '../../assets/icons/dots-settings.svg'
 import outlinedBellIcon from '../../assets/icons/outlined-bell.svg'
 import graphIcon from '../../assets/icons/graph.svg'
 import starsIcon from '../../assets/icons/stars.svg'
+import { MenuHamburgerModal } from '../../components/MenuHamburgerModal'
+import { MenuHamburgerContainer } from '../FeedHirer/styles'
+import { PersonalInfoForm } from '../../components/MenuComponents/PersonalInfoForm'
+import { NotificationForm } from '../../components/MenuComponents/NotificationsForm'
+import { PasswordForm } from '../../components/MenuComponents/PasswordForm'
+import { AccountForm } from '../../components/MenuComponents/AccountForm'
 
 export function DevProfile() {
-  const { toggleMenu } = useContext(MenuContext)
+  const [isMenuHamburgerModalOpen, setIsMenuHamburgerModalOpen] = useState(false)
+
+  function handleCloseMenuHamburgerModal() {
+    setIsMenuHamburgerModalOpen(false)
+  }
+
+  function handleOpenMenuHamburgerModal() {
+    setIsMenuHamburgerModalOpen(true)
+  }
 
   return (
     <Styled.GridContainer>
@@ -82,7 +95,18 @@ export function DevProfile() {
       <Styled.SidebarRight>
         <Styled.ProfileSettingsContainer>
           <Styled.ProfilesTextTitle>Perfil</Styled.ProfilesTextTitle>
-          <Styled.SettingsProfileIcon src={settingsIcon} onClick={toggleMenu} />
+          <Styled.SettingsProfileIcon src={settingsIcon} onClick={handleOpenMenuHamburgerModal} />
+          <MenuHamburgerModal
+            isShowing={isMenuHamburgerModalOpen}
+            onRequestClose={handleCloseMenuHamburgerModal}
+          >
+            <MenuHamburgerContainer>
+              <PersonalInfoForm />
+              <NotificationForm />
+              <PasswordForm />
+              <AccountForm />
+            </MenuHamburgerContainer>
+          </MenuHamburgerModal>
         </Styled.ProfileSettingsContainer>
         <Styled.PhotoContainer>
           <DevProfilePhoto />

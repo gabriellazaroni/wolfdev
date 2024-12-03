@@ -76,7 +76,7 @@ export function AccountForm() {
         <MessageErrorContainer>
           <DefaultSelect
             titleSelect="Motivo do fechamento"
-            placeHolder="Selectione"
+            placeHolder="Selecione"
             {...register('reasonForClosing')}
           >
             <OptionSelect>Estou em um emprego</OptionSelect>

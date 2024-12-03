@@ -1,8 +1,7 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-
 import {
   ContainerDevName,
   DescriptionContainer,
@@ -39,19 +38,25 @@ import {
   ModalContainerDevName,
   ModalStarsAndDevNameContainer,
   ModalDevInfoText,
-  ModalRealizedProjectsContainer
+  ModalRealizedProjectsContainer,
+  MenuHamburgerContainer
 } from './styles'
 import { MenuContainer } from '../../components/MenuComponents/MenuContainer'
 import { SearchBar } from '../../components/SearchBar'
 import { DevProfilePhoto } from '../../components/DevProfilePhoto'
 import { LenguageBox } from '../../components/LenguageBox'
 import { CollapsibleText } from '../../components/Collapsibletext'
-import { MenuContext } from '../../contexts/MenuContext'
 import { CustomModal } from '../../components/CustomModal'
 import { FilterDevForm } from '../../components/FilterDevForm'
 import { CustomInput } from '../../components/common/CustomInput'
 import { DefaultSelect } from '../../components/common/DefaultSelect'
 import { HireModalAboutProjectSchema } from '../../schemas/HireModalAboutProjectSchema'
+import { MenuHamburgerModal } from '../../components/MenuHamburgerModal'
+import { PersonalInfoForm } from '../../components/MenuComponents/PersonalInfoForm'
+import { NotificationForm } from '../../components/MenuComponents/NotificationsForm'
+import { PasswordForm } from '../../components/MenuComponents/PasswordForm'
+import { AccountForm } from '../../components/MenuComponents/AccountForm'
+import { TextMesssageError } from '../DevRegisterPersonalInformation/styles'
 import DefaultButton from '../../components/common/DefaultButton'
 import settingsIcon from '../../assets/icons/dots-settings.svg'
 import filterIcon from '../../assets/icons/filter.svg'
@@ -85,9 +90,9 @@ const defaultDev: Developer = {
 }
 
 export function FeedHirer() {
-  const { toggleMenu } = useContext(MenuContext)
   const [isOpen, setIsOpen] = useState(false)
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false)
+  const [isMenuHamburgerModalOpen, setIsMenuHamburgerModalOpen] = useState(false)
   const [filteredDevelopers, setFilteredDevelopers] = useState([])
   const [currentDev, setCurrentDev] = useState<Developer | null>(defaultDev)
   const [searchQuery, setSearchQuery] = useState('')
@@ -109,6 +114,14 @@ export function FeedHirer() {
     setIsPaymentModalOpen(true)
   }
 
+  function handleCloseMenuHamburgerModal() {
+    setIsMenuHamburgerModalOpen(false)
+  }
+
+  function handleOpenMenuHamburgerModal() {
+    setIsMenuHamburgerModalOpen(true)
+  }
+
   const {
     register,
     handleSubmit,
@@ -127,7 +140,6 @@ export function FeedHirer() {
 
   const handleFormSubmit = (data: AboutProjectsProps) => {
     console.log(data)
-    console.log('gabriel')
   }
 
   const developers = [
@@ -182,13 +194,24 @@ export function FeedHirer() {
             onClick={handleOpenModal}
             placeHolder='Buscar por nome'
           />
-          <SettingsProfileIcon src={settingsIcon} onClick={toggleMenu} />
+          <SettingsProfileIcon src={settingsIcon} onClick={handleOpenMenuHamburgerModal} />
           <CustomModal onRequestClose={handleCloseModal} isShowing={isOpen} title='Filtros' icon={filterIcon}>
             <FilterDevForm
               developers={developers}
               onFilter={setFilteredDevelopers}
             />
           </CustomModal>
+          <MenuHamburgerModal
+            isShowing={isMenuHamburgerModalOpen}
+            onRequestClose={handleCloseMenuHamburgerModal}
+          >
+            <MenuHamburgerContainer>
+              <PersonalInfoForm />
+              <NotificationForm />
+              <PasswordForm />
+              <AccountForm />
+            </MenuHamburgerContainer>
+          </MenuHamburgerModal>
         </SettingsIconContainer>
         {filteredDevelopers.map((dev, index) => (
           <DevContainer key={index}>
@@ -263,8 +286,8 @@ export function FeedHirer() {
                     <ModalRealizedProjectsContainer>
                       <RealizedProjectText>
                         Projetos realizados:
-                        <ProjectsRealizedNumber> 200</ProjectsRealizedNumber>
                       </RealizedProjectText>
+                      <ProjectsRealizedNumber> 200</ProjectsRealizedNumber>
                     </ModalRealizedProjectsContainer>
                   </ModalDevPriceContainer>
                 </ModalHireContainer>
@@ -275,32 +298,44 @@ export function FeedHirer() {
                       {...register('category')}
                       placeHolder='Escolha uma categoria'
                     >
-                      <option>0 - 1</option>
-                      <option>1 - 5</option>
-                      <option>5 - 10</option>
-                      <option>10 +</option>
+                      <option>Back-end</option>
+                      <option>Front-end</option>
+                      <option>UI/UX</option>
+                      <option>Full-stack</option>
                     </DefaultSelect>
+                    {errors.category?.message && (
+                      <TextMesssageError>{errors.category?.message}</TextMesssageError>
+                    )}
                     <DefaultSelect
                       {...register('subCategory')}
                       placeHolder='Escolha uma subcategoria'
                     >
-                      <option>0 - 1</option>
-                      <option>1 - 5</option>
-                      <option>5 - 10</option>
-                      <option>10 +</option>
+                      <option>Rect</option>
+                      <option>Vue</option>
+                      <option>Angular</option>
+                      <option>Next</option>
                     </DefaultSelect>
+                    {errors.subCategory?.message && (
+                      <TextMesssageError>{errors.subCategory?.message}</TextMesssageError>
+                    )}
                     <CustomInput
                       {...register('projectName')}
                       name="projectName"
                       placeHolder="Nome do projeto"
                       type="text"
                     />
+                    {errors.projectName?.message && (
+                      <TextMesssageError>{errors.projectName?.message}</TextMesssageError>
+                    )}
                     <CustomInput
                       {...register('coments')}
                       name="coments"
                       placeHolder="Comentários adicionais?"
                       type="text"
                     />
+                    {errors.coments?.message && (
+                      <TextMesssageError>{errors.coments?.message}</TextMesssageError>
+                    )}
                   </ModalInputsHireContainer>
                   <ModalButtonsHireContainer>
                     <DefaultButton
@@ -329,8 +364,8 @@ export function FeedHirer() {
               <RealizedProjectsContainer>
                 <RealizedProjectText>
                   Projetos realizados:
-                  <ProjectsRealizedNumber> 200</ProjectsRealizedNumber>
                 </RealizedProjectText>
+                <ProjectsRealizedNumber> 200</ProjectsRealizedNumber>
               </RealizedProjectsContainer>
             </DevPriceContainer>
           </DevContainer>

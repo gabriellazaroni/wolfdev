@@ -8,7 +8,6 @@ import amplifyConfig from './services/amplify-config'
 import GlobalRoutes from './routes/routes'
 
 import 'react-toastify/dist/ReactToastify.css'
-import { MenuContextProvider } from './contexts/MenuContext'
 
 Amplify.configure(amplifyConfig)
 
@@ -28,9 +27,7 @@ function App() {
         theme="dark"
       />
       <GlobalStyle />
-      <MenuContextProvider>
-        <GlobalRoutes />
-      </MenuContextProvider>
+      <GlobalRoutes />
     </>
   )
 }
