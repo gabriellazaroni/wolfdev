@@ -4,6 +4,7 @@ import { ButtonInputImg, Container, Img, Title, Select } from './styles'
 interface PlataformSelectProps {
   children?: ReactNode
   width?: string
+  backgroundColor?: string
   maxWidth?: string
   height?: string
   placeHolder?: string
@@ -37,14 +38,16 @@ export const DefaultSelect = React.forwardRef<
       value,
       src,
       onChange,
-      children
+      children,
+      backgroundColor
     },
     ref
   ) => {
     const SelectStyle = {
       width,
       maxWidth,
-      height
+      height,
+      backgroundColor
     }
 
     return (

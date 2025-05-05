@@ -14,6 +14,7 @@ interface PlataformInputProps {
   required?: boolean
   value?: string | number
   src?: string
+  backgroundColor?: string
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
@@ -26,6 +27,7 @@ export const CustomInput = React.forwardRef<
       width,
       maxWidth,
       height,
+      backgroundColor,
       placeHolder,
       titleInput,
       type,
@@ -42,7 +44,8 @@ export const CustomInput = React.forwardRef<
     const InputStyle = {
       width,
       maxWidth,
-      height
+      height,
+      backgroundColor
     }
 
     return (
@@ -50,6 +53,7 @@ export const CustomInput = React.forwardRef<
         <Title>{titleInput}</Title>
         <Input
           style={{ ...InputStyle }}
+          backgroundColor={backgroundColor}
           id={id}
           name={name}
           autoComplete="on"
