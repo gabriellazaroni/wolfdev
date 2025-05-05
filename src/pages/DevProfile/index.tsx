@@ -1,21 +1,22 @@
 import React, { useContext, useState } from 'react'
-import * as Styled from './styles'
 import { ContainerBox } from '../../components/ContainerBox'
 import { GithubContainerBox } from '../../components/GithubContainerBox'
 import { MenuContainer } from '../../components/MenuComponents/MenuContainer'
-import { DevProfilePhoto } from '../../components/DevProfilePhoto'
+import { ProfilePhoto } from '../../components/ProfilePhoto'
 import projectIcon from '../../assets/icons/project.svg'
 import habilityIcon from '../../assets/icons/hability.svg'
 import settingsIcon from '../../assets/icons/dots-settings.svg'
 import outlinedBellIcon from '../../assets/icons/outlined-bell.svg'
 import graphIcon from '../../assets/icons/graph.svg'
 import starsIcon from '../../assets/icons/stars.svg'
+import profilePhoto from '../../assets/images/photo.svg'
 import { MenuHamburgerModal } from '../../components/MenuHamburgerModal'
 import { MenuHamburgerContainer } from '../FeedHirer/styles'
 import { PersonalInfoForm } from '../../components/MenuComponents/PersonalInfoForm'
 import { NotificationForm } from '../../components/MenuComponents/NotificationsForm'
 import { PasswordForm } from '../../components/MenuComponents/PasswordForm'
 import { AccountForm } from '../../components/MenuComponents/AccountForm'
+import { ActivityAndGithubContainer, ActivityContainer, ActivityInfoText, ContentActivityContainer, CountryContainer, CountryText, DevInfoContainer, EspecialityText, GitHubProjectsContainer, GraphContainer, GridContainer, IconImg, IconsPofileContainer, InfoTitleContainer, JobInfoText, MainContainer, MainGitHubContainer, NameAndEspecilityContainer, PhotoContainer, ProfileNameText, ProfileSettingsContainer, ProfilesTextTitle, SettingsProfileIcon, SidebarRight, SkillTableContainer, StarsContainer, StyledTable, SubtitleGraphText, TableCell, TableHeader, TableRow, TitleActivtyText, TitleBorderRadiusContainer, TitleProjectsGitHub, ValueActivityContainer, ValueText } from './styles'
 
 export function DevProfile() {
   const [isMenuHamburgerModalOpen, setIsMenuHamburgerModalOpen] = useState(false)
@@ -29,73 +30,73 @@ export function DevProfile() {
   }
 
   return (
-    <Styled.GridContainer>
+    <GridContainer>
       <MenuContainer maxWidth='350px' />
-      <Styled.MainContainer>
-        <Styled.DevInfoContainer>
+      <MainContainer>
+        <DevInfoContainer>
           <ContainerBox icon={projectIcon} value="6" title="Projetos Github" />
           <ContainerBox icon={habilityIcon} value="5" title="Habilidades" />
           <ContainerBox icon={projectIcon} value="15" title="Trabalhos" />
-        </Styled.DevInfoContainer>
-        <Styled.ActivityAndGithubContainer>
-          <Styled.ActivityContainer>
-            <Styled.TitleBorderRadiusContainer>
-              <Styled.TitleActivtyText>Atividades</Styled.TitleActivtyText>
-            </Styled.TitleBorderRadiusContainer>
-            <Styled.ContentActivityContainer>
+        </DevInfoContainer>
+        <ActivityAndGithubContainer>
+          <ActivityContainer>
+            <TitleBorderRadiusContainer>
+              <TitleActivtyText>Atividades</TitleActivtyText>
+            </TitleBorderRadiusContainer>
+            <ContentActivityContainer>
               {[...Array(3)].map((_, index) => (
-                <Styled.ValueActivityContainer key={index}>
-                  <Styled.ActivityInfoText>Projetos realizados</Styled.ActivityInfoText>
-                  <Styled.ValueText>10</Styled.ValueText>
-                </Styled.ValueActivityContainer>
+                <ValueActivityContainer key={index}>
+                  <ActivityInfoText>Projetos realizados</ActivityInfoText>
+                  <ValueText>10</ValueText>
+                </ValueActivityContainer>
               ))}
-            </Styled.ContentActivityContainer>
-            <Styled.InfoTitleContainer>
-              <Styled.TitleActivtyText>Informações</Styled.TitleActivtyText>
-            </Styled.InfoTitleContainer>
-            <Styled.ContentActivityContainer>
-              <Styled.ValueActivityContainer>
-                <Styled.ActivityInfoText>Projetos realizados</Styled.ActivityInfoText>
-                <Styled.ValueText>10</Styled.ValueText>
-              </Styled.ValueActivityContainer>
-            </Styled.ContentActivityContainer>
-          </Styled.ActivityContainer>
-          <Styled.MainGitHubContainer>
-            <Styled.TitleProjectsGitHub>Projetos GitHub</Styled.TitleProjectsGitHub>
-            <Styled.GitHubProjectsContainer>
+            </ContentActivityContainer>
+            <InfoTitleContainer>
+              <TitleActivtyText>Informações</TitleActivtyText>
+            </InfoTitleContainer>
+            <ContentActivityContainer>
+              <ValueActivityContainer>
+                <ActivityInfoText>Projetos realizados</ActivityInfoText>
+                <ValueText>10</ValueText>
+              </ValueActivityContainer>
+            </ContentActivityContainer>
+          </ActivityContainer>
+          <MainGitHubContainer>
+            <TitleProjectsGitHub>Projetos GitHub</TitleProjectsGitHub>
+            <GitHubProjectsContainer>
               {[...Array(6)].map((_, index) => (
                 <GithubContainerBox projectName="api-rest-node-typescript" key={index} />
               ))}
-            </Styled.GitHubProjectsContainer>
-          </Styled.MainGitHubContainer>
-        </Styled.ActivityAndGithubContainer>
-        <Styled.SkillTableContainer>
-          <Styled.StyledTable>
+            </GitHubProjectsContainer>
+          </MainGitHubContainer>
+        </ActivityAndGithubContainer>
+        <SkillTableContainer>
+          <StyledTable>
             <thead>
-              <Styled.TableRow>
-                <Styled.TableHeader>Habilidades</Styled.TableHeader>
-                <Styled.TableHeader>Certificados</Styled.TableHeader>
-                <Styled.TableHeader>Projetos Trabalhados</Styled.TableHeader>
-                <Styled.TableHeader>Anos de Experiência</Styled.TableHeader>
-              </Styled.TableRow>
+              <TableRow>
+                <TableHeader>Habilidades</TableHeader>
+                <TableHeader>Certificados</TableHeader>
+                <TableHeader>Projetos Trabalhados</TableHeader>
+                <TableHeader>Anos de Experiência</TableHeader>
+              </TableRow>
             </thead>
             <tbody>
               {[...Array(10)].map((_, index) => (
-                <Styled.TableRow key={index}>
-                  <Styled.TableCell>JavaScript</Styled.TableCell>
-                  <Styled.TableCell>-</Styled.TableCell>
-                  <Styled.TableCell>10 Projetos</Styled.TableCell>
-                  <Styled.TableCell>3 Anos</Styled.TableCell>
-                </Styled.TableRow>
+                <TableRow key={index}>
+                  <TableCell>JavaScript</TableCell>
+                  <TableCell>-</TableCell>
+                  <TableCell>10 Projetos</TableCell>
+                  <TableCell>3 Anos</TableCell>
+                </TableRow>
               ))}
             </tbody>
-          </Styled.StyledTable>
-        </Styled.SkillTableContainer>
-      </Styled.MainContainer>
-      <Styled.SidebarRight>
-        <Styled.ProfileSettingsContainer>
-          <Styled.ProfilesTextTitle>Perfil</Styled.ProfilesTextTitle>
-          <Styled.SettingsProfileIcon src={settingsIcon} onClick={handleOpenMenuHamburgerModal} />
+          </StyledTable>
+        </SkillTableContainer>
+      </MainContainer>
+      <SidebarRight>
+        <ProfileSettingsContainer>
+          <ProfilesTextTitle>Perfil</ProfilesTextTitle>
+          <SettingsProfileIcon src={settingsIcon} onClick={handleOpenMenuHamburgerModal} />
           <MenuHamburgerModal
             isShowing={isMenuHamburgerModalOpen}
             onRequestClose={handleCloseMenuHamburgerModal}
@@ -107,31 +108,31 @@ export function DevProfile() {
               <AccountForm />
             </MenuHamburgerContainer>
           </MenuHamburgerModal>
-        </Styled.ProfileSettingsContainer>
-        <Styled.PhotoContainer>
-          <DevProfilePhoto />
-          <Styled.NameAndEspecilityContainer>
-            <Styled.ProfileNameText>Gabriel</Styled.ProfileNameText>
-            <Styled.EspecialityText>Desenvolvedor Front-end</Styled.EspecialityText>
-          </Styled.NameAndEspecilityContainer>
-          <Styled.IconsPofileContainer>
-            <Styled.IconImg src={outlinedBellIcon} />
-            <Styled.IconImg src={outlinedBellIcon} />
-            <Styled.IconImg src={outlinedBellIcon} />
-          </Styled.IconsPofileContainer>
-        </Styled.PhotoContainer>
-        <Styled.GraphContainer>
-          <Styled.IconImg src={graphIcon} />
-          <Styled.SubtitleGraphText>Habilidades</Styled.SubtitleGraphText>
-        </Styled.GraphContainer>
-        <Styled.StarsContainer>
-          <Styled.IconImg src={starsIcon} />
-        </Styled.StarsContainer>
-        <Styled.CountryContainer>
-          <Styled.CountryText>Brasil</Styled.CountryText>
-          <Styled.JobInfoText>Full-time - Freelance</Styled.JobInfoText>
-        </Styled.CountryContainer>
-      </Styled.SidebarRight>
-    </Styled.GridContainer>
+        </ProfileSettingsContainer>
+        <PhotoContainer>
+          <ProfilePhoto photo={profilePhoto} />
+          <NameAndEspecilityContainer>
+            <ProfileNameText>Gabriel</ProfileNameText>
+            <EspecialityText>Desenvolvedor Front-end</EspecialityText>
+          </NameAndEspecilityContainer>
+          <IconsPofileContainer>
+            <IconImg src={outlinedBellIcon} />
+            <IconImg src={outlinedBellIcon} />
+            <IconImg src={outlinedBellIcon} />
+          </IconsPofileContainer>
+        </PhotoContainer>
+        <GraphContainer>
+          <IconImg src={graphIcon} />
+          <SubtitleGraphText>Habilidades</SubtitleGraphText>
+        </GraphContainer>
+        <StarsContainer>
+          <IconImg src={starsIcon} />
+        </StarsContainer>
+        <CountryContainer>
+          <CountryText>Brasil</CountryText>
+          <JobInfoText>Full-time - Freelance</JobInfoText>
+        </CountryContainer>
+      </SidebarRight>
+    </GridContainer>
   )
 }

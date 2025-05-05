@@ -6,7 +6,7 @@ import { MenuItemButtton } from '../MenuItemButton'
 import { ButtonContainer, DivisorSelectContainer, FormInputsContainer, MessageErrorContainer, TextMesssageError } from './styles'
 import { CustomInput } from '../../common/CustomInput'
 import DefaultButton from '../../common/DefaultButton'
-import personIcon from '../../../assets/icons/person.svg'
+import padLockIcon from '../../../assets/icons/padlock.svg'
 import { PasswordInfoEditSchema } from '../../../schemas/PaswordEditSchema'
 
 export type PasswordEditInputsProps = z.infer<typeof PasswordInfoEditSchema>;
@@ -42,7 +42,7 @@ export function PasswordForm() {
       isShowing={modals}
       onRequestClose={handleOpenModal}
       title="Senha"
-      icon={personIcon}
+      icon={padLockIcon}
       toggleModal={handleOpenModal}
     >
       <FormInputsContainer onSubmit={handleSubmit(handleFormSubmit)}>

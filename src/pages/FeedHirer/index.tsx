@@ -43,7 +43,7 @@ import {
 } from './styles'
 import { MenuContainer } from '../../components/MenuComponents/MenuContainer'
 import { SearchBar } from '../../components/SearchBar'
-import { DevProfilePhoto } from '../../components/DevProfilePhoto'
+import { ProfilePhoto } from '../../components/ProfilePhoto'
 import { LenguageBox } from '../../components/LenguageBox'
 import { CollapsibleText } from '../../components/Collapsibletext'
 import { CustomModal } from '../../components/CustomModal'
@@ -62,6 +62,7 @@ import settingsIcon from '../../assets/icons/dots-settings.svg'
 import filterIcon from '../../assets/icons/filter.svg'
 import hireIcon from '../../assets/icons/hire.svg'
 import starsIcon from '../../assets/icons/stars.svg'
+import profilePhoto from '../../assets/images/photo.svg'
 
 export type AboutProjectsProps = z.infer<
   typeof HireModalAboutProjectSchema
@@ -96,7 +97,6 @@ export function FeedHirer() {
   const [filteredDevelopers, setFilteredDevelopers] = useState([])
   const [currentDev, setCurrentDev] = useState<Developer | null>(defaultDev)
   const [searchQuery, setSearchQuery] = useState('')
-
   function handleCloseModal() {
     setIsOpen(false)
   }
@@ -177,7 +177,7 @@ export function FeedHirer() {
 
   return (
     <GridContainer>
-      <MenuContainer maxWidth='350px'>
+      <MenuContainer maxWidth='350px' profileHirer={true}>
         <FilterContainerForm>
           <FilterDevForm
             developers={developers}
@@ -217,7 +217,7 @@ export function FeedHirer() {
           <DevContainer key={index}>
             <DevDetailsContainer>
               <PhotoContainer>
-                <DevProfilePhoto />
+                <ProfilePhoto photo={profilePhoto} />
                 <ContainerDevName>
                   <StarsAndDevNameContainer>
                     <DevName>{dev.name}</DevName>
@@ -270,7 +270,7 @@ export function FeedHirer() {
                 <ModalHireContainer>
                   <DevDetailsContainer>
                     <ModalPhotoContainer>
-                      <DevProfilePhoto />
+                      <ProfilePhoto photo={profilePhoto} />
                       <ModalContainerDevName>
                         <ModalStarsAndDevNameContainer>
                           <DevName>{currentDev.name}</DevName>
@@ -347,16 +347,6 @@ export function FeedHirer() {
                       fontSize='16px'
                     >
                       AGENDAR ENTREVISTA
-                    </DefaultButton>
-                    <DefaultButton
-                      active
-                      backgroundColor="var(--purple-500)"
-                      color="var(--white)"
-                      border="var(--purple-500)"
-                      type="submit"
-                      fontSize='16px'
-                    >
-                      SEGUIR PARA PAGAMENTO
                     </DefaultButton>
                   </ModalButtonsHireContainer>
                 </InputsAndButtonHireContainerForm>

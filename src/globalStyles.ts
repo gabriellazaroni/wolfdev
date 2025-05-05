@@ -93,10 +93,10 @@ const GlobalStyle = createGlobalStyle`
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
   input:-webkit-autofill:active {
-    -webkit-animation-delay: 1s;
-    -webkit-animation-name: autofill;
-    -webkit-animation-fill-mode: both;
-    box-shadow: 0 0 0 30px #020202 inset ;
+    -webkit-border-radius: 0;
+border-radius: 0;
+-webkit-box-shadow: none;
+box-shadow: none;
   }
 
   input:-webkit-autofill {
